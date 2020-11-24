@@ -5,6 +5,8 @@
  */
 package mustachebarbers;
 
+import java.util.Scanner;
+
 /**
  *
  * @author claudiodionisio
@@ -17,7 +19,10 @@ public class MustacheBarbers {
     public static void main(String[] args) {
         // TODO code application logic here
         System.out.println("Claudio Dionisio");
-                
+            System.out.println("what the fuck");
+            Scanner scanner= new Scanner(System.in);
+            String name = scanner.nextLine();
+            System.out.println(name);
 
     }
     
