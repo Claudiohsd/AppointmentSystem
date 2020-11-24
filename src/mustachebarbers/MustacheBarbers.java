@@ -17,7 +17,7 @@ public class MustacheBarbers {
     public static void main(String[] args) {
         // TODO code application logic here
         System.out.println("Claudio Dionisio");
-                System.out.println("Claudio Dionisio");
+                
 
     }
     
