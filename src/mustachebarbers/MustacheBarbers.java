@@ -5,7 +5,6 @@
  */
 package mustachebarbers;
 
-import java.util.Scanner;
 
 /**
  *
@@ -19,7 +18,7 @@ public class MustacheBarbers {
     public static void main(String[] args) {
         // TODO code application logic here
         System.out.println("Claudio Dionisio");
-            System.out.println("what the fuck");
+            System.out.println("enter your name malaka");
             Scanner scanner= new Scanner(System.in);
             String name = scanner.nextLine();
             System.out.println(name);
