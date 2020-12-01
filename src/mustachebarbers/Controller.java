@@ -5,52 +5,100 @@
  */
 package mustachebarbers;
 
-import java.awt.GridLayout;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import javax.swing.JButton;
 
 /**
  *
  * @author claudiodionisio
  */
-public class Controller extends JFrame{
+public class Controller implements ActionListener{
+    
+    private StartPage start;
+    private Model model;
+    private Register register;
+    private String userName, password, button;
+    public JButton back = new JButton("back");
     
     
-    public Controller() {
-        
-        //shows the frame to the screen 
-        this.setVisible(true);
-        // sets the size of the label
-        this.setSize(500,300);
-        //gives the frame a name and shows it in the top bar
-        this.setTitle("Layout Managers");
-        
-        //creates a new label(txt)
-        JLabel one = new JLabel("one");
-        JLabel two = new JLabel("two");
-        JLabel three = new JLabel("three");
-        JLabel four = new JLabel("four");
-        JLabel five = new JLabel("five");
-        
-        //both Flow and grid layouts organize the labels so that they can be show on to the screen without overlaping
-        //FlowLayout manager = new FlowLayout();
-        GridLayout manager = new GridLayout(1, 5);
-        this.setLayout(manager);
-        
-        //adds the label to the panel
-        this.add(one);
-        this.add(two);
-        this.add(three);
-        this.add(four);
-        this.add(five);
-        
-        //validates and repaint the frame, will be useful in the future
-        //for now its only to get used
-        this.validate();
-        this.repaint();
     
-        
+    
+    
+    public Controller() throws IOException {
+        this.back.setBorderPainted(false);
+        this.start = new StartPage(this);
+        this.model = new Model();
+       
+       
     }
+    private void credentialCheck(){
+        
+    User user = new User(userName, password);
+                
+        boolean credential = model.login(user);
+       
+        
+        String resultMessage = "Try again with valid credentials";
+        
+        
+        if(credential){
+            resultMessage = "Welcome " + user.getUserName().toUpperCase() + " !";
+        
+        }
+        
+        start.setCredential(resultMessage);
+        }
+    private void register(){ 
+        
+         register = new Register(this);
+    }
+    private void start() throws IOException{
+        
+        StartPage start = new StartPage(this);
+    }
+
+//override methods   
+@Override
+    public void actionPerformed(ActionEvent e) {
+        
+        userName = start.getName();
+        password = start.getPassword();
+        button = e.getActionCommand();
+        //check which button was pressed
+        System.out.println(button);
+        switch(button) 
+            
+        {   //checks credential
+            case "SIGN IN": 
+                credentialCheck();
+                break; 
+            //redirects to sign up page    
+            case "SIGN UP": 
+                register();
+                start.setVisible(false);
+                break; 
+            case "back": 
+            {
+               register.setVisible(false);
+               start.setVisible(true);
+               
+            }
+            break; 
+ 
+ 
+            default: 
+                System.out.println(button); 
+        } 
+        
+        
+        }
+    
+    
+    }
+
+    
     
     
     
@@ -82,19 +130,18 @@ public class Controller extends JFrame{
     
     //if customer, page with 4 panels, one for user name, one for search button, one for viewing booking, one for reviews
     //page with 3 panels(location, barbers name, write review)
-    // page with 2 panels(view bookings, cancel button)
+    // page with 2 panels(start bookings, cancel button)
     //page with 1 panel(show locations and barbers, buttons)
     //page 1 panel show slot and book
     //alert one booking cancelled
     //alert 2 booking success!
     
-    //if sp, page three panels(buttons view appointments, set availability, set status)
+    //if sp, page three panels(buttons start appointments, set availability, set status)
     //page with one panel(choose booking and set status
     //page three panels (choose day, hour, set availability
-    //page one panel(view appointments)
+    //page one panel(start appointments)
+
     
-    
-}
 
 
 
