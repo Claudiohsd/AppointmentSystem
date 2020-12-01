@@ -24,8 +24,7 @@ public class Controller implements ActionListener{
     
     
     
-    
-    
+
     public Controller() throws IOException {
         this.back.setBorderPainted(false);
         this.start = new StartPage(this);
