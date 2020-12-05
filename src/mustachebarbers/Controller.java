@@ -7,10 +7,7 @@ package mustachebarbers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 import java.io.IOException;
-import java.net.URISyntaxException;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.SwingUtilities;
@@ -27,12 +24,11 @@ public class Controller implements ActionListener {
     private DefineUser defineUser;
     private WelcomePage welcome;
     private int phone;
-    private String button, userName, surname, password, e_mail, location, userType;
+    private String button, userName, surname, password, e_mail, location, userType, userInput;
     private User user;
     private UserPage userPage;
-    private boolean locationNumber = false;
+    private boolean booked;
     private Search search;
-    private SearchSlots sSlots;
 
     public Controller() throws IOException {
         //initialize the variables
@@ -61,11 +57,6 @@ public class Controller implements ActionListener {
         }
 
         start.setCredential(resultMessage);
-
-    }private void searchSlots() {
-        
-        sSlots = new SearchSlots(this);
-        
 
     }
 
@@ -114,16 +105,25 @@ public class Controller implements ActionListener {
     }
 
     //calls the user page
-    private void userPage() {   
-       
+    private void userPage() {
+
         userPage = new UserPage(this);
         userPage.setVisible(true);
     }
 
     //calls the search page
     private void searchPage() {
+
         search = new Search(this);
         search.setVisible(true);
+
+    }
+
+    private void book() {
+        booked = true;
+        userPage = new UserPage(this);
+        search.setVisible(false);
+        userPage.setVisible(true);
 
     }
 
@@ -131,9 +131,8 @@ public class Controller implements ActionListener {
     public String getUserType() {
         return userType;
     }
-
-    public boolean getLocationNumber() {
-        return locationNumber;
+    public boolean getBooked() {
+        return booked;
     }
 
 //override methods   
@@ -165,7 +164,6 @@ public class Controller implements ActionListener {
             case "Back": {
                 defineUser.setVisible(false);
                 start.setVisible(true);
-
             }
             break;
             //register page command
@@ -183,7 +181,6 @@ public class Controller implements ActionListener {
             // command comes from the barber DefineUser page
             case "Barber SIGN UP": {
 
-//               
                 try {
 
                     //opens up the welcome page
@@ -194,7 +191,6 @@ public class Controller implements ActionListener {
                 } catch (IOException ex) {
                     Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
                 }
-//               
             }
             break;
             case "Register Back": {
@@ -230,8 +226,6 @@ public class Controller implements ActionListener {
             }
             break;
             case "Search Back": {
-                locationNumber = false;
-
                 userPage.setVisible(true);
                 search.setVisible(false);
             }
@@ -245,20 +239,12 @@ public class Controller implements ActionListener {
                 userPage.setVisible(false);
             }
             break;
-            case "            Search             ": {
-                search.setVisible(false);
-                locationNumber = true;
-//                SwingUtilities.updateComponentTreeUI(search);
-                searchPage();
-//              
+            case "            Book             ": {
 
+                book();
             }
             break;
-            case "            FindSlots           ": {
-           search.setVisible(false);
-           searchSlots();
-            }
-            break;
+
             default:
                 System.out.println(button);
 
@@ -267,26 +253,3 @@ public class Controller implements ActionListener {
     }
 
 }
-
-//Creates the login page
-//creates the window
-//panel for the image
-//panel for the login page with the user name, password, and the option of signing up
-//if sign up is clicked, opens up a new page with two panels, one for a customer, other for the service provider
-//if service provider, sp registration
-//if customer, c registration
-// after signning up,or signing in, redirects to the welcome page
-//the welcome page consists of three panels, one for image, one for displaying the variable name, one for the button next and logout
-// if or else for customer or sp
-//if customer, page with 4 panels, one for user name, one for search button, one for viewing booking, one for reviews
-//page with 3 panels(location, barbers name, write review)
-// page with 2 panels(start bookings, cancel button)
-//page with 1 panel(show locations and barbers, buttons)
-//page 1 panel show slot and book
-//alert one booking cancelled
-//alert 2 booking success!
-//if sp, page three panels(buttons start appointments, set availability, set status)
-//page with one panel(choose booking and set status
-//page three panels (choose day, hour, set availability
-//page one panel(start appointments)
-

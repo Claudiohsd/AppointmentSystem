@@ -8,6 +8,7 @@ package mustachebarbers;
 import java.awt.BorderLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -22,6 +23,7 @@ public class UserPage extends JFrame {
     private JButton b3 = new JButton();
     private String title;
     private JButton logout = new JButton("Logout");
+    private boolean booked = false;
 
     Controller controller;
 
@@ -30,7 +32,7 @@ public class UserPage extends JFrame {
         this.controller = controller;
         // sets the default title to start page which will be the first page to run
         this.title = controller.getUserType().toUpperCase();
-
+        this.booked = controller.getBooked();
         if ("CUSTOMER".equals(title)) {
             this.b1.setText("Search Barber/Location");
             this.b2.setText("       View Booking        ");
@@ -41,6 +43,7 @@ public class UserPage extends JFrame {
             this.b2.setText("       Set Availability        ");
             this.b3.setText("            Set Status           ");
         }
+        if (booked){new OptionPane();}
         // We encapsulated the building process of the window
         setAttributes();
         components();
@@ -89,6 +92,15 @@ public class UserPage extends JFrame {
         this.repaint();
         //makes sure the jframe quits when closing window
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+     public class OptionPane {
+
+        JFrame f;
+
+        OptionPane() {
+            f = new JFrame();
+            JOptionPane.showMessageDialog(f, "Slot successfully Booked!");
+        }
     }
 
 }

@@ -6,18 +6,14 @@
 package mustachebarbers;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
-import javax.swing.InputVerifier;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
-import javax.swing.JComponent;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.text.JTextComponent;
 
 /**
  *
@@ -25,111 +21,77 @@ import javax.swing.text.JTextComponent;
  */
 public class Search extends JFrame {
 
+    private JComboBox<String> jComboBox1 = new JComboBox();
+    private JComboBox<String> jComboBox2 = new JComboBox();
+    private JComboBox<String> jComboBox3 = new JComboBox();
     private JPanel mainPanel = new JPanel();
     private JLabel textTf1 = new JLabel();
     private JLabel textTf2 = new JLabel();
     private JLabel textTf3 = new JLabel();
-    private JButton search = new JButton("            Search             ");
-    private JButton fSlot = new JButton("            FindSlots           ");
-    private String title;
+    private JLabel textTf4 = new JLabel();
+    private JButton book = new JButton("            Book             ");
     private JButton back = new JButton("Back");
     private JButton logout = new JButton("Logout");
-    private JTextField tf1 = new JTextField(14);
-    private JTextField tf2 = new JTextField(30);
-    private JTable table;
-    private JScrollPane scrollPane;
+    private String selected, title;
 
     Controller controller;
     Model model;
 
     public Search(Controller controller) {
-
         this.controller = controller;
         // sets the default title to start page which will be the first page to run
         this.title = "Search";
         this.model = new Model();
         //if it is the request comes from the user page, it runs this,
-        if (!controller.getLocationNumber()) {
 
-            String[] columnNames = {"Number ", "Location"};
-            String[][] data = model.searchLocation();
+        textTf1.setText("Select a location, a barber and a slot");
+        textTf2.setText("Location");
+        textTf3.setText("Barber");
+        jComboBox1.addItemListener(listener);
+        jComboBox1.addItemListener(listener);
+        jComboBox1.setModel(new DefaultComboBoxModel<>(model.searchLocation()));
+        jComboBox2.setModel(new DefaultComboBoxModel<>(model.searchBarber(selected)));
+        jComboBox3.setModel(new DefaultComboBoxModel<>(model.searchSlots(selected)));
 
-            table = new JTable(data, columnNames);
+        jComboBox2.addItemListener(listener);
+        jComboBox3.addItemListener(listener);
 
-            table.setSize(100, 200);
-            scrollPane = new JScrollPane(table);
-            scrollPane.setPreferredSize(new Dimension(200, 100));
-            textTf1.setText("The following locations were found");
-            textTf2.setText("Please enter the location number. ");
-            textTf3.setText("The following locations were found");
-            tf1.setInputVerifier(new PassVerifier());
-            tf1.setName("tf1");
+        // We encapsulated the building process of the window
+        setAttributes();
+        components();
+        // listeners
+        book.addActionListener(controller);
+        logout.addActionListener(controller);
+        back.setActionCommand("Search Back");
+        back.addActionListener(controller);
+        //adds the elements to the panel
+        mainPanel.add(textTf1);
+        mainPanel.add(textTf2);
+        mainPanel.add(jComboBox1);
+        mainPanel.add(textTf3);
+        mainPanel.add(jComboBox2);
+        mainPanel.add(textTf4);
+        mainPanel.add(jComboBox3);
+        mainPanel.add(book);
+        mainPanel.add(back);
+        mainPanel.add(logout);
 
-            // We encapsulated the building process of the window
-            setAttributes();
-            components();
-            // listeners
-            search.addActionListener(controller);
-            logout.addActionListener(controller);
-            back.setActionCommand("Search Back");
-            back.addActionListener(controller);
-            //adds the elements to the panel
-            mainPanel.add(textTf1);
-            mainPanel.add(scrollPane);
-            mainPanel.add(textTf2);
-            mainPanel.add(tf1);
-            mainPanel.add(search);
+        validation();
+    }
 
-            mainPanel.add(back);
-            mainPanel.add(logout);
-            tf1.grabFocus();
+    public void populateJCB2() {
+        jComboBox2.setModel(new DefaultComboBoxModel<>(model.searchBarber(selected)));
+    }
 
-            validation();
-        
-        //the request comes from the code above through the controller class.
-        } else {
-
-            String[] columnNames = {"Number ", "Name", "Surname"};
-            String[][] data = model.searchBarber();
-
-            table = new JTable(data, columnNames);
-
-            table.setSize(100, 200);
-            scrollPane = new JScrollPane(table);
-            scrollPane.setPreferredSize(new Dimension(250, 100));
-            textTf1.setText("The following barbers were found");
-            textTf2.setText("Please enter the barber number. ");
-            tf1.setInputVerifier(new PassVerifier());
-            tf1.setName("tf1");
-
-            // We encapsulated the building process of the window
-            setAttributes();
-            components();
-            // listeners
-            logout.addActionListener(controller);
-            fSlot.addActionListener(controller);
-            back.setActionCommand("Search Back");
-            back.addActionListener(controller);
-            //adds the elements to the panel
-            mainPanel.add(textTf1);
-            mainPanel.add(scrollPane);
-            mainPanel.add(textTf2);
-            mainPanel.add(tf1);
-            mainPanel.add(fSlot);
-
-            mainPanel.add(back);
-            mainPanel.add(logout);
-            tf1.grabFocus();
-
-            validation();
-        }
-
+    public void populateJCB3() {
+        System.out.println(model.searchSlots(selected).toString());
+        jComboBox3.setModel(new DefaultComboBoxModel<>(model.searchSlots(selected)));
     }
 
     // Setting the attributes
     private void setAttributes() {
         //sets the size of the frame
-        this.setSize(250, 400);
+        this.setSize(200, 300);
         //sets title of the frame
         this.setTitle(title);
         //makes the frame be openned in the center of the screen
@@ -153,6 +115,8 @@ public class Search extends JFrame {
     }
     // Validation and repainting
 
+   
+
     private void validation() {
         this.validate();
         this.repaint();
@@ -160,44 +124,31 @@ public class Search extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    class PassVerifier extends InputVerifier {
+    ItemListener listener = (e) -> {
+        if (e.getStateChange() == ItemEvent.SELECTED) {
+            if (e.getSource() == jComboBox1) {
+                if (jComboBox1.getSelectedIndex() != 0) {
+                    selected = jComboBox1.getSelectedItem().toString();
+                    jComboBox2.removeAllItems();
+                    populateJCB2();
 
-        public boolean verify(JComponent input) {
-            //it will make sure the fields get input from the user
-            final JTextComponent source = (JTextComponent) input;
-            String name = input.getName();
-            String s = "";
-
-            //switch to determine which field has the focus
-            switch (name) {
-                case "tf1": {
-                    s = tf1.getText();
                 }
-                break;
-                case "tf2": {
-                    s = tf2.getText();
+            } else if (e.getSource() == jComboBox2) {
+                if (jComboBox2.getSelectedIndex() != 0) {
+                    selected = jComboBox2.getSelectedItem().toString();
+                    jComboBox3.removeAllItems();
+                    populateJCB3();
+
                 }
-                default:
-                    System.out.println(name);
-            }
 
-            boolean valid = s.isBlank();
+            } else if (e.getSource() == jComboBox3) {
+                if (jComboBox3.getSelectedIndex() != 0) {
+                    selected = jComboBox3.getSelectedItem().toString();
+                   
+                }
 
-            if (name == tf1.getName() && !tf1.getText().matches("^\\d+$")) {
-                JOptionPane.showMessageDialog(source, "field cannot be empty and it should be a number.",
-                        "Input error", JOptionPane.ERROR_MESSAGE);
-                return false;
-            } else {
-                return true;
             }
         }
-
-    }
-
-    //getters
-    public int getUserInput() {
-        
-        return Integer.parseInt(tf1.getText());
-    }
+    };
 
 }
