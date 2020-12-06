@@ -23,7 +23,7 @@ public class UserPage extends JFrame {
     private JButton b3 = new JButton();
     private String title;
     private JButton logout = new JButton("Logout");
-    private boolean booked = false;
+    private boolean booked,cancelled = false;
 
     Controller controller;
 
@@ -33,6 +33,7 @@ public class UserPage extends JFrame {
         // sets the default title to start page which will be the first page to run
         this.title = controller.getUserType().toUpperCase();
         this.booked = controller.getBooked();
+        this.cancelled = controller.getCancelled();
         if ("CUSTOMER".equals(title)) {
             this.b1.setText("Search Barber/Location");
             this.b2.setText("       View Booking        ");
@@ -43,27 +44,32 @@ public class UserPage extends JFrame {
             this.b2.setText("       Set Availability        ");
             this.b3.setText("            Set Status           ");
         }
-        if (booked){new OptionPane();}
-        // We encapsulated the building process of the window
-        setAttributes();
-        components();
+        if (booked) {
 
-        // listeners
-        b2.addActionListener(controller);
-        b1.addActionListener(controller);
-        b3.addActionListener(controller);
-        logout.addActionListener(controller);
+            JFrame f = new JFrame();
+                JOptionPane.showMessageDialog(f, "Slot successfully Booked!");
+            }else if(cancelled){
+             JFrame f = new JFrame();
+                JOptionPane.showMessageDialog(f, "Slot successfully Booked!");}
+            // We encapsulated the building process of the window
+            setAttributes();
+            components();
 
-        //adds the elements to the panel
-        mainPanel.add(b1);
-        mainPanel.add(b2);
-        mainPanel.add(b3);
-        mainPanel.add(logout);
+            // listeners
+            b2.addActionListener(controller);
+            b1.addActionListener(controller);
+            b3.addActionListener(controller);
+            logout.addActionListener(controller);
 
-        validation();
-    }
+            //adds the elements to the panel
+            mainPanel.add(b1);
+            mainPanel.add(b2);
+            mainPanel.add(b3);
+            mainPanel.add(logout);
 
-    // Setting the attributes
+            validation();
+        }
+        // Setting the attributes
     private void setAttributes() {
         //sets the size of the frame
         this.setSize(200, 250);
@@ -93,7 +99,8 @@ public class UserPage extends JFrame {
         //makes sure the jframe quits when closing window
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-     public class OptionPane {
+
+    public class OptionPane {
 
         JFrame f;
 

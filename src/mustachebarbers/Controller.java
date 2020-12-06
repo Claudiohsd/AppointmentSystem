@@ -27,7 +27,8 @@ public class Controller implements ActionListener {
     private String button, userName, surname, password, e_mail, location, userType, userInput;
     private User user;
     private UserPage userPage;
-    private boolean booked;
+    private ViewBooking vBooking;
+    private boolean booked, cancelled;
     private Search search;
 
     public Controller() throws IOException {
@@ -109,6 +110,7 @@ public class Controller implements ActionListener {
 
         userPage = new UserPage(this);
         userPage.setVisible(true);
+
     }
 
     //calls the search page
@@ -120,6 +122,7 @@ public class Controller implements ActionListener {
     }
 
     private void book() {
+        model.book(userName, search.getdateTime());
         booked = true;
         userPage = new UserPage(this);
         search.setVisible(false);
@@ -127,12 +130,27 @@ public class Controller implements ActionListener {
 
     }
 
+    public void viewBooking() {
+
+        vBooking = new ViewBooking(this);
+        vBooking.setVisible(true);
+    }
+
     //getters
     public String getUserType() {
         return userType;
     }
+
     public boolean getBooked() {
         return booked;
+    }
+
+    public boolean getCancelled() {
+        return cancelled;
+    }
+
+    public String getUserName() {
+        return userName;
     }
 
 //override methods   
@@ -217,7 +235,7 @@ public class Controller implements ActionListener {
             break;
             case "       View Booking        ": {
                 userPage.setVisible(false);
-
+                viewBooking();
             }
             break;
             case "            Reviews            ": {
@@ -242,6 +260,17 @@ public class Controller implements ActionListener {
             case "            Book             ": {
 
                 book();
+            }
+            break;
+            case "Booking Back": {
+
+                vBooking.setVisible(true);
+                vBooking.setVisible(false);
+            }
+            case "            Cancel             ": {
+                cancelled = true;
+                vBooking.setVisible(false);
+                userPage.setVisible(true);
             }
             break;
 

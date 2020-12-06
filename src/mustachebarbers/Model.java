@@ -22,7 +22,6 @@ public class Model {
     private int phone, size;
 
     User user;
-   
 
     public boolean login(User user) {
 
@@ -137,7 +136,7 @@ public class Model {
 
             // Loop through the result set
             int row = 0;
-            data1.add("select");
+            data1.add("---select---");
             while (rs.next()) {
                 data1.add(rs.getString("location"));
                 row++;
@@ -166,7 +165,7 @@ public class Model {
     public String[] searchBarber(String location) {
         ArrayList<String> data1 = new ArrayList<String>();
         boolean result = false;
-      
+
         try {
             String dbServer = "jdbc:mysql://apontejaj.com:3306/Claudio_2019235?useSSL=false";
             String dbUser = "Claudio_2019235";
@@ -184,7 +183,7 @@ public class Model {
 
             // Loop through the result set
             int row = 0;
-            data1.add("select");
+            data1.add("---select---");
             while (rs.next()) {
                 data1.add(rs.getString("name"));
                 row++;
@@ -211,7 +210,7 @@ public class Model {
     }
 
     public String[] searchSlots(String barber) {
-        
+
         ArrayList<String> data1 = new ArrayList<String>();
         boolean result = false;
 
@@ -232,7 +231,7 @@ public class Model {
 
             // Loop through the result set
             int row = 0;
-            data1.add("select");
+            data1.add("---select---");
             while (rs.next()) {
                 data1.add(rs.getString("datetime"));
                 row++;
@@ -262,8 +261,9 @@ public class Model {
         return data;
 
     }
-     public void book(String user, String datetime) {
-        
+
+    public void book(String user, String datetime) {
+
         ArrayList<String> data1 = new ArrayList<String>();
         boolean result = false;
 
@@ -271,7 +271,7 @@ public class Model {
             String dbServer = "jdbc:mysql://apontejaj.com:3306/Claudio_2019235?useSSL=false";
             String dbUser = "Claudio_2019235";
             String dbPassword = "2019235";
-            String query = "UPDATE bookings SET customer = '"+user+"' WHERE datetime = '" + datetime + "';";
+            String query = "UPDATE bookings SET customer = '" + user + "',status = 'booked' WHERE datetime = '" + datetime + "';";
 
             // Get a connection to the database
             Connection conn = DriverManager.getConnection(dbServer, dbUser, dbPassword);
@@ -282,7 +282,7 @@ public class Model {
             // Execute the query
             stmt.executeUpdate(query);
             // Close the result set, statement and the connection
-            
+
             stmt.close();
             conn.close();
         } catch (SQLException se) {
@@ -304,6 +304,52 @@ public class Model {
         String[] data = data1.toArray(new String[size]);
 
     }
+    public String[] searchBooking(String customer) {
+        boolean result = false;
+        ArrayList<String> data1 = new ArrayList<String>();
+        try {
+            String dbServer = "jdbc:mysql://apontejaj.com:3306/Claudio_2019235?useSSL=false";
+            String dbUser = "Claudio_2019235";
+            String dbPassword = "2019235";
+            String query = "SELECT barber, datetime FROM bookings WHERE customer = '" + customer + "';";
+
+            // Get a connection to the database
+            Connection conn = DriverManager.getConnection(dbServer, dbUser, dbPassword);
+
+            // Get a statement from the connection
+            Statement stmt = conn.createStatement();
+
+            // Execute the query
+            ResultSet rs = stmt.executeQuery(query);
+
+            // Loop through the result set
+            int row = 0;
+            data1.add("---select---");
+            while (rs.next()) {
+                data1.add("Barber: "+rs.getString("barber")+"on: "+rs.getString("datetime"));
+                row++;
+            }
+            // Close the result set, statement and the connection
+            rs.close();
+            stmt.close();
+            conn.close();
+        } catch (SQLException se) {
+            System.out.println("SQL Exception:");
+            // Loop through the SQL Exceptions
+            while (se != null) {
+                System.out.println("State  : " + se.getSQLState());
+                System.out.println("Message: " + se.getMessage());
+                System.out.println("Error  : " + se.getErrorCode());
+                se = se.getNextException();
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        size = data1.size();
+        String[] data = data1.toArray(new String[size]);
+        return data;
+    }
+
 
     // getters 
     public String getUserName() {
