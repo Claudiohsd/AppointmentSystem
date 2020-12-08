@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package mustachebarbers;
-
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ItemEvent;
@@ -20,7 +19,7 @@ import javax.swing.JPanel;
  *
  * @author claudiodionisio
  */
-public class ViewBooking extends JFrame {
+public class Reviews extends JFrame {
 
     private JComboBox<String> jComboBox1 = new JComboBox();
     private JPanel mainPanel = new JPanel();
@@ -37,10 +36,10 @@ public class ViewBooking extends JFrame {
     Model model;
     User user;
 
-    public ViewBooking(Controller controller) {
+    public Reviews(Controller controller) {
         this.controller = controller;
         // sets the default title to start page which will be the first page to run
-        this.title = "View Bookings";
+        this.title = "Reviews";
         this.model = new Model();
         this.userName = controller.getUserName();
         //if it is the request comes from the user page, it runs this,

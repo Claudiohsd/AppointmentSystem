@@ -6,6 +6,7 @@
 package mustachebarbers;
 
 import java.awt.BorderLayout;
+import java.awt.GridLayout;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -28,6 +29,7 @@ import javax.swing.text.JTextComponent;
 public class StartPage extends JFrame {
 
     private JPanel mainPanel = new JPanel();
+    private JPanel panel2 = new JPanel();
     private JLabel textTf1 = new JLabel();
     private JLabel textTf2 = new JLabel();
     private JLabel textTf3 = new JLabel();
@@ -39,6 +41,7 @@ public class StartPage extends JFrame {
     private BufferedImage myPicture = ImageIO.read(new File("img/logo.png"));
     //image source https://www.google.com/url?sa=i&url=https%3A%2F%2Fmustachebarbershop.com%2F&psig=AOvVaw1bd0UQjY6FjMOACtc6KTkN&ust=1606844315184000&source=images&cd=vfe&ved=0CAMQjB1qFwoTCNiQ56Toqu0CFQAAAAAdAAAAABAD
     private JLabel logo = new JLabel(new ImageIcon(myPicture));
+    GridLayout gLayout = new GridLayout(2, 1);
 
     Controller controller;
 
@@ -64,13 +67,13 @@ public class StartPage extends JFrame {
         signUP.setFocusable(false);
         //adds the elements to the panel
         mainPanel.add(logo);
-        mainPanel.add(textTf1);
-        mainPanel.add(tf1);
-        mainPanel.add(textTf2);
-        mainPanel.add(tf2);
-        mainPanel.add(signIN);
-        mainPanel.add(signUP);
-        mainPanel.add(textTf3);
+        panel2.add(textTf1);
+        panel2.add(tf1);
+        panel2.add(textTf2);
+        panel2.add(tf2);
+        panel2.add(signIN);
+        panel2.add(signUP);
+        panel2.add(textTf3);
         tf1.grabFocus();
 
         validation();
@@ -78,20 +81,25 @@ public class StartPage extends JFrame {
 
     private void setAttributes() {
         //sets the size of the frame
-        this.setSize(250, 400);
+        this.setSize(350, 450);
+        panel2.setSize(WIDTH, 50);
         //sets title of the frame
         this.setTitle(title);
         //makes the frame be openned in the center of the screen
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setVisible(true);
+        this.setLayout(gLayout);
     }
     // Organising the components
 
     private void components() {
 
         this.add(mainPanel);
-        this.add(mainPanel, BorderLayout.CENTER);
+        this.add(mainPanel, BorderLayout.PAGE_START);
+        this.add(panel2);
+        this.add(panel2, BorderLayout.PAGE_END);
+       
     }
     // Validation and repainting
 

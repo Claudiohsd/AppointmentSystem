@@ -24,7 +24,7 @@ public class Controller implements ActionListener {
     private DefineUser defineUser;
     private WelcomePage welcome;
     private int phone;
-    private String button, userName, surname, password, e_mail, location, userType, userInput;
+    private String button, userName, surname, password, e_mail, location, userType, userInput, dateTime;
     private User user;
     private UserPage userPage;
     private ViewBooking vBooking;
@@ -130,6 +130,20 @@ public class Controller implements ActionListener {
 
     }
 
+    private void cancelCustomer() {
+        if (model.hasBooking(userName)) {
+
+            model.cancelBooking(userName, dateTime);
+            booked = false;
+            userPage = new UserPage(this);
+            vBooking.setVisible(false);
+            userPage.setVisible(true);
+        } else {
+            cancelled = true;
+        }
+
+    }
+
     public void viewBooking() {
 
         vBooking = new ViewBooking(this);
@@ -224,6 +238,7 @@ public class Controller implements ActionListener {
             case "Logout": {
                 userPage.setVisible(false);
                 SwingUtilities.updateComponentTreeUI(start);
+                SwingUtilities.updateComponentTreeUI(userPage);
                 start.clearTextfield();
                 start.setVisible(true);
             }
@@ -239,7 +254,7 @@ public class Controller implements ActionListener {
             }
             break;
             case "            Reviews            ": {
-                userPage.setVisible(false);
+                userPage.setVisible(true);
 
             }
             break;
@@ -267,7 +282,14 @@ public class Controller implements ActionListener {
                 vBooking.setVisible(true);
                 vBooking.setVisible(false);
             }
+            case "ViewBooking Back": {
+                cancelled = false;
+                vBooking.setVisible(false);
+                userPage.setVisible(true);
+            }
             case "            Cancel             ": {
+                dateTime = vBooking.getdateTime();
+                cancelCustomer();
                 cancelled = true;
                 vBooking.setVisible(false);
                 userPage.setVisible(true);
