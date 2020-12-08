@@ -138,10 +138,7 @@ public class Controller implements ActionListener {
             userPage = new UserPage(this);
             vBooking.setVisible(false);
             userPage.setVisible(true);
-        } else {
-            cancelled = true;
-        }
-
+        } 
     }
 
     public void viewBooking() {
