@@ -60,6 +60,7 @@ public class Reviews extends JFrame {
         submitReview.addActionListener(controller);
         logout.addActionListener(controller);
         back.setActionCommand("Review Back");
+        logout.setActionCommand("Reviews Logout");
         back.addActionListener(controller);
         //adds the elements to the panel
         mainPanel.add(textTf1);

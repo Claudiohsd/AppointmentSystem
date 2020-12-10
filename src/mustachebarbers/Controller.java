@@ -28,9 +28,10 @@ public class Controller implements ActionListener {
     private User user;
     private UserPage userPage;
     private ViewBooking vBooking;
-    private boolean booked, cancelled,savedReview;
+    private boolean booked, cancelled, savedReview;
     private Search search;
     private Reviews review;
+    private ViewAppointments vAppointments;
 
     public Controller() throws IOException {
         //initialize the variables
@@ -103,7 +104,7 @@ public class Controller implements ActionListener {
             user = new User(userName, surname, password, phone, e_mail, location, userType);
             model.newUser(user);
             //must be a customer
-        } else{
+        } else {
             userName = register.getUserName();
             phone = register.getPhone();
             password = register.getPassword();
@@ -111,7 +112,7 @@ public class Controller implements ActionListener {
             welcome.setUserName(userName);
             user = new User(userName, surname, password, phone, e_mail, location, userType);
             model.newUser(user);
-        
+
         }
     }
 
@@ -140,6 +141,7 @@ public class Controller implements ActionListener {
 
     }
 //cancel booking from the customer page and restart the user page   
+
     private void cancelCustomer() {
         if (model.hasBooking(userName)) {
 
@@ -148,26 +150,48 @@ public class Controller implements ActionListener {
             userPage = new UserPage(this);
             vBooking.setVisible(false);
             userPage.setVisible(true);
-        } 
+        }
+    }//cancel booking from barber page
+
+    private void cancelBarber() {
+        if (model.hasBookingBarber(userName)) {
+
+            model.cancelBookingBarber(userName, dateTime);
+            booked = false;
+            userPage = new UserPage(this);
+            vAppointments.setVisible(false);
+            userPage.setVisible(true);
+        }
     }
 //starts a new view booking page
+
     public void viewBooking() {
 
         vBooking = new ViewBooking(this);
         vBooking.setVisible(true);
     }
+
+    //starts the view appointments page
+    public void viewAppointments() {
+
+        vAppointments = new ViewAppointments(this);
+        vAppointments.setVisible(true);
+    }
+
     public void review() {
 
         review = new Reviews(this);
         review.setVisible(true);
-    //submits the review from the user and restart the user page   
-    } public void submitReview() {
+        //submits the review from the user and restart the user page   
+    }
 
-            model.newReview(review.getBarberName(), review.getReview());
-            savedReview = true;
-            userPage = new UserPage(this);
-            review.setVisible(false);
-            userPage.setVisible(true);
+    public void submitReview() {
+
+        model.newReview(review.getBarberName(), review.getReview());
+        savedReview = true;
+        userPage = new UserPage(this);
+        review.setVisible(false);
+        userPage.setVisible(true);
     }
 
     //getters
@@ -186,6 +210,7 @@ public class Controller implements ActionListener {
     public String getUserName() {
         return userName;
     }
+
     public boolean getSavedReview() {
         return savedReview;
     }
@@ -246,7 +271,9 @@ public class Controller implements ActionListener {
                 } catch (IOException ex) {
                     Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            }case "Customer SIGN UP": {
+            }
+            break;
+            case "Customer SIGN UP": {
 
                 try {
 
@@ -276,11 +303,29 @@ public class Controller implements ActionListener {
                 SwingUtilities.updateComponentTreeUI(userPage);
                 start.clearTextfield();
                 start.setVisible(true);
+                booked = false;
             }
-             case "Welcome Logout": {
+            break;
+            case "Welcome Logout": {
                 welcome.setVisible(false);
                 SwingUtilities.updateComponentTreeUI(start);
-                
+                booked = false;
+                start.clearTextfield();
+                start.setVisible(true);
+            }
+            break;
+            case "Reviews Logout": {
+                welcome.setVisible(false);
+                booked = false;
+                SwingUtilities.updateComponentTreeUI(start);
+                start.clearTextfield();
+                start.setVisible(true);
+            }
+            break;
+            case "ViewAppointment Logout": {
+                vAppointments.setVisible(false);
+                booked = false;
+                SwingUtilities.updateComponentTreeUI(start);
                 start.clearTextfield();
                 start.setVisible(true);
             }
@@ -293,6 +338,11 @@ public class Controller implements ActionListener {
             case "       View Booking        ": {
                 userPage.setVisible(false);
                 viewBooking();
+            }
+            break;
+            case "    View Appointments    ": {
+                userPage.setVisible(false);
+                viewAppointments();
             }
             break;
             case "            Reviews            ": {
@@ -319,7 +369,9 @@ public class Controller implements ActionListener {
             case "            Book             ": {
 
                 book();
-            } case "            Submit Review             ": {
+            }
+            break;
+            case "            Submit Review             ": {
 
                 submitReview();
             }
@@ -328,17 +380,35 @@ public class Controller implements ActionListener {
 
                 vBooking.setVisible(true);
                 vBooking.setVisible(false);
+
             }
+            break;
             case "ViewBooking Back": {
                 cancelled = false;
                 vBooking.setVisible(false);
                 userPage.setVisible(true);
+
             }
+            case "ViewAppointment Back": {
+                cancelled = false;
+                vAppointments.setVisible(false);
+                userPage.setVisible(true);
+
+            }
+            break;
             case "            Cancel             ": {
                 dateTime = vBooking.getdateTime();
-                cancelCustomer();
                 cancelled = true;
                 vBooking.setVisible(false);
+                cancelCustomer();
+            }
+            break;
+            case "ViewAppointments Cancel": {
+                dateTime = vAppointments.getdateTime();
+                cancelled = true;
+                vAppointments.setVisible(false);
+                cancelBarber();
+
             }
             break;
 
