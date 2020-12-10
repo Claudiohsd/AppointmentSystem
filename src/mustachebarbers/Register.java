@@ -49,65 +49,111 @@ public class Register extends JFrame {
 
         this.controller = controller;
         // sets the default title to start page which will be the first page to run
-        this.title = controller.getUserType().toUpperCase()+ " REGISTER";
-        
+        this.title = controller.getUserType().toUpperCase() + " REGISTER";
+
         // We encapsulated the building process of the window
         setAttributes();
         components();
         //set the names of the text fields and also the input verifiers to make sure the fields are
         //filled before jumping to the next page.
         //set the input verifiers to make sure the fields are filled up
-        message.setText("                                                  "+controller.getUserType().toUpperCase()+"                                               ");
-        textTf1.setText("Name");
-        tf1.setName("tf1");
-        tf1.setInputVerifier(new PassVerifier());
-        textTf2.setText("Location");
-        tf2.setName("tf2");
-        tf2.setInputVerifier(new PassVerifier());
-        textTf3.setText("Phone");
-        tf3.setName("tf3");
-        tf3.setInputVerifier(new PassVerifier());
-        textTf4.setText("Password");
-        tf4.setName("tf4");
-        tf4.setInputVerifier(new PassVerifier());
-        textTf5.setText("Re-enter Password");
-        tf5.setName("tf5");
-        tf5.setInputVerifier(new PassVerifier());
-        textTf6.setText("Surname");
-        tf6.setName("tf6");
-        tf6.setInputVerifier(new PassVerifier());
-        textTf8.setText("E_mail");
-        tf8.setName("tf8");
-        tf8.setInputVerifier(new PassVerifier());
-        // listeners
-        signUP.setActionCommand("Barber SIGN UP");
-        signUP.addActionListener(controller);
-        back.setActionCommand("Register Back");
-        back.addActionListener(controller);
-        //allows the back button to be pressed without triggering the input verifier
-        back.setFocusable(false);
+        message.setText("                                                  " + controller.getUserType().toUpperCase() + "                                               ");
+        if (controller.getUserType() == "barber") {
+            textTf1.setText("Name");
+            tf1.setName("tf1");
+            tf1.setInputVerifier(new PassVerifier());
+            textTf2.setText("Location");
+            tf2.setName("tf2");
+            tf2.setInputVerifier(new PassVerifier());
+            textTf3.setText("Phone");
+            tf3.setName("tf3");
+            tf3.setInputVerifier(new PassVerifier());
+            textTf4.setText("Password");
+            tf4.setName("tf4");
+            tf4.setInputVerifier(new PassVerifier());
+            textTf5.setText("Re-enter Password");
+            tf5.setName("tf5");
+            tf5.setInputVerifier(new PassVerifier());
+            textTf6.setText("Surname");
+            tf6.setName("tf6");
+            tf6.setInputVerifier(new PassVerifier());
+            textTf8.setText("E_mail");
+            tf8.setName("tf8");
+            tf8.setInputVerifier(new PassVerifier());
+            // listeners
+            signUP.setActionCommand("Barber SIGN UP");
+            signUP.addActionListener(controller);
+            back.setActionCommand("Register Back");
+            back.addActionListener(controller);
+            //allows the back button to be pressed without triggering the input verifier
+            back.setFocusable(false);
 
-        //adds the elements to the panel
-        mainPanel.add(message);
-        mainPanel.add(textTf1);
-        mainPanel.add(tf1);
-        mainPanel.add(textTf6);
-        mainPanel.add(tf6);
-        mainPanel.add(textTf8);
-        mainPanel.add(tf8);
-        mainPanel.add(textTf2);
-        mainPanel.add(tf2);
-        mainPanel.add(textTf3);
-        mainPanel.add(tf3);
-        mainPanel.add(textTf4);
-        mainPanel.add(tf4);
-        mainPanel.add(textTf5);
-        mainPanel.add(tf5);
-        mainPanel.add(textTf7);
-        mainPanel.add(signUP);
-        mainPanel.add(back);
-        mainPanel.add(textTf7);
+            //adds the elements to the panel
+            mainPanel.add(message);
+            mainPanel.add(textTf1);
+            mainPanel.add(tf1);
+            mainPanel.add(textTf6);
+            mainPanel.add(tf6);
+            mainPanel.add(textTf8);
+            mainPanel.add(tf8);
+            mainPanel.add(textTf2);
+            mainPanel.add(tf2);
+            mainPanel.add(textTf3);
+            mainPanel.add(tf3);
+            mainPanel.add(textTf4);
+            mainPanel.add(tf4);
+            mainPanel.add(textTf5);
+            mainPanel.add(tf5);
+            mainPanel.add(textTf7);
+            mainPanel.add(signUP);
+            mainPanel.add(back);
+            mainPanel.add(textTf7);
+        } else {
+            textTf1.setText("Name");
+            tf1.setName("tf1");
+            tf1.setInputVerifier(new PassVerifier());
+            textTf3.setText("Phone");
+            tf3.setName("tf3");
+            tf3.setInputVerifier(new PassVerifier());
+            textTf4.setText("Password");
+            tf4.setName("tf4");
+            tf4.setInputVerifier(new PassVerifier());
+            textTf5.setText("Re-enter Password");
+            tf5.setName("tf5");
+            tf5.setInputVerifier(new PassVerifier());
+            textTf6.setText("Surname");
+            tf6.setName("tf6");
+            tf6.setInputVerifier(new PassVerifier());
+            textTf8.setText("E_mail");
+            tf8.setName("tf8");
+            tf8.setInputVerifier(new PassVerifier());
+            // listeners
+            signUP.setActionCommand("Customer SIGN UP");
+            signUP.addActionListener(controller);
+            back.setActionCommand("Register Back");
+            back.addActionListener(controller);
+            //allows the back button to be pressed without triggering the input verifier
+            back.setFocusable(false);
 
+            //adds the elements to the panel
+            mainPanel.add(message);
+            mainPanel.add(textTf1);
+            mainPanel.add(tf1);
+            mainPanel.add(textTf6);
+            mainPanel.add(tf6);
+            mainPanel.add(textTf8);
+            mainPanel.add(tf8);
+            mainPanel.add(textTf3);
+            mainPanel.add(tf3);
+            mainPanel.add(textTf4);
+            mainPanel.add(tf4);
+            mainPanel.add(textTf5);
+            mainPanel.add(tf5);
+            mainPanel.add(textTf7);
+            mainPanel.add(signUP);
+            mainPanel.add(back);
+            mainPanel.add(textTf7);
+        }
         validation();
     }
 
@@ -123,10 +169,6 @@ public class Register extends JFrame {
             switch (name) {
                 case "tf1": {
                     s = tf1.getText();
-                }
-                break;
-                case "tf2": {
-                    s = tf2.getText();
                 }
                 break;
                 case "tf3": {
@@ -234,7 +276,11 @@ public class Register extends JFrame {
     }
 
     public String getUsertype() {
-        return "barber";
+        if (controller.getUserType() == "barber") {
+            return "barber";
+        } else {
+            return "customer";
+        }
     }
 
     public void setMessage(String message) {

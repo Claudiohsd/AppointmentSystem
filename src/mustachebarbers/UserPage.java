@@ -27,7 +27,7 @@ public class UserPage extends JFrame {
     private JButton b3 = new JButton();
     private String title;
     private JButton logout = new JButton("Logout");
-    private boolean booked, cancelled = false;
+    private boolean booked, cancelled, savedReview= false;
     GridLayout gLayout = new GridLayout(4, 1);
 
     Controller controller;
@@ -39,6 +39,7 @@ public class UserPage extends JFrame {
         this.title = controller.getUserType().toUpperCase();
         this.booked = controller.getBooked();
         this.cancelled = controller.getCancelled();
+        this.savedReview = controller.getSavedReview();
         if ("CUSTOMER".equals(title)) {
             this.b1.setText("Search Barber/Location");
             this.b2.setText("       View Booking        ");
@@ -56,6 +57,10 @@ public class UserPage extends JFrame {
         } else if (cancelled) {
             JFrame f = new JFrame();
             JOptionPane.showMessageDialog(f, "Slot successfully Cancelled!");
+        }else if (savedReview){
+            JFrame f = new JFrame();
+            JOptionPane.showMessageDialog(f, "Review successfully Submitted!");
+        
         }
         // We encapsulated the building process of the window
         setAttributes();

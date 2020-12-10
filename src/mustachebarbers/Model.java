@@ -115,6 +115,42 @@ public class Model {
         }
 
     }
+    public void newReview(String barber, String review) {
+
+        try {
+            String dbServer = "jdbc:mysql://apontejaj.com:3306/Claudio_2019235?useSSL=false";
+            String dbUser = "Claudio_2019235";
+            String dbPassword = "2019235";
+            String query = "INSERT INTO reviews (barber, review)"
+                    + "VALUES ('" + barber + "','" +review+ "');";
+
+            // Get a connection to the database
+            Connection conn = DriverManager.getConnection(dbServer, dbUser, dbPassword);
+
+            // Get a statement from the connection
+            Statement stmt = conn.createStatement();
+
+            // Execute the query
+            stmt.executeUpdate(query);
+
+            stmt.close();
+            conn.close();
+        } catch (SQLException se) {
+            System.out.println("SQL Exception:");
+
+            // Loop through the SQL Exceptions
+            while (se != null) {
+                System.out.println("State  : " + se.getSQLState());
+                System.out.println("Message: " + se.getMessage());
+                System.out.println("Error  : " + se.getErrorCode());
+
+                se = se.getNextException();
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+    }
 
     public String[] searchLocation() {
         boolean result = false;
@@ -429,6 +465,51 @@ public class Model {
         }
 
         return result;
+    }
+     public String[] barberReview() {
+
+        ArrayList<String> data1 = new ArrayList<String>();
+        try {
+            String dbServer = "jdbc:mysql://apontejaj.com:3306/Claudio_2019235?useSSL=false";
+            String dbUser = "Claudio_2019235";
+            String dbPassword = "2019235";
+            String query = "SELECT name FROM user WHERE user_type = 'barber';";
+
+            // Get a connection to the database
+            Connection conn = DriverManager.getConnection(dbServer, dbUser, dbPassword);
+
+            // Get a statement from the connection
+            Statement stmt = conn.createStatement();
+
+            // Execute the query
+            ResultSet rs = stmt.executeQuery(query);
+
+            // Loop through the result set
+            int row = 0;
+            data1.add("---select---");
+            while (rs.next()) {
+                data1.add("Barber: " + rs.getString("name"));
+                row++;
+            }
+            // Close the result set, statement and the connection
+            rs.close();
+            stmt.close();
+            conn.close();
+        } catch (SQLException se) {
+            System.out.println("SQL Exception:");
+            // Loop through the SQL Exceptions
+            while (se != null) {
+                System.out.println("State  : " + se.getSQLState());
+                System.out.println("Message: " + se.getMessage());
+                System.out.println("Error  : " + se.getErrorCode());
+                se = se.getNextException();
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        size = data1.size();
+        String[] data = data1.toArray(new String[size]);
+        return data;
     }
 
     // getters 

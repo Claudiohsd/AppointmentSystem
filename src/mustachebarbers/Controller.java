@@ -28,8 +28,9 @@ public class Controller implements ActionListener {
     private User user;
     private UserPage userPage;
     private ViewBooking vBooking;
-    private boolean booked, cancelled;
+    private boolean booked, cancelled,savedReview;
     private Search search;
+    private Reviews review;
 
     public Controller() throws IOException {
         //initialize the variables
@@ -101,7 +102,16 @@ public class Controller implements ActionListener {
             welcome.setUserName(userName);
             user = new User(userName, surname, password, phone, e_mail, location, userType);
             model.newUser(user);
-
+            //must be a customer
+        } else{
+            userName = register.getUserName();
+            phone = register.getPhone();
+            password = register.getPassword();
+            userType = register.getUsertype();
+            welcome.setUserName(userName);
+            user = new User(userName, surname, password, phone, e_mail, location, userType);
+            model.newUser(user);
+        
         }
     }
 
@@ -129,7 +139,7 @@ public class Controller implements ActionListener {
         userPage.setVisible(true);
 
     }
-
+//cancel booking from the customer page and restart the user page   
     private void cancelCustomer() {
         if (model.hasBooking(userName)) {
 
@@ -140,11 +150,24 @@ public class Controller implements ActionListener {
             userPage.setVisible(true);
         } 
     }
-
+//starts a new view booking page
     public void viewBooking() {
 
         vBooking = new ViewBooking(this);
         vBooking.setVisible(true);
+    }
+    public void review() {
+
+        review = new Reviews(this);
+        review.setVisible(true);
+    //submits the review from the user and restart the user page   
+    } public void submitReview() {
+
+            model.newReview(review.getBarberName(), review.getReview());
+            savedReview = true;
+            userPage = new UserPage(this);
+            review.setVisible(false);
+            userPage.setVisible(true);
     }
 
     //getters
@@ -162,6 +185,9 @@ public class Controller implements ActionListener {
 
     public String getUserName() {
         return userName;
+    }
+    public boolean getSavedReview() {
+        return savedReview;
     }
 
 //override methods   
@@ -220,6 +246,18 @@ public class Controller implements ActionListener {
                 } catch (IOException ex) {
                     Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
                 }
+            }case "Customer SIGN UP": {
+
+                try {
+
+                    //opens up the welcome page
+                    welcome();
+                    //closes the barber DefineUser page 
+                    register.setVisible(false);
+
+                } catch (IOException ex) {
+                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
             break;
             case "Register Back": {
@@ -239,6 +277,13 @@ public class Controller implements ActionListener {
                 start.clearTextfield();
                 start.setVisible(true);
             }
+             case "Welcome Logout": {
+                welcome.setVisible(false);
+                SwingUtilities.updateComponentTreeUI(start);
+                
+                start.clearTextfield();
+                start.setVisible(true);
+            }
             break;
             case "Search Barber/Location": {
                 userPage.setVisible(false);
@@ -252,6 +297,7 @@ public class Controller implements ActionListener {
             break;
             case "            Reviews            ": {
                 userPage.setVisible(true);
+                review();
 
             }
             break;
@@ -266,12 +312,16 @@ public class Controller implements ActionListener {
             }
             break;
             case "Review Back": {
-                userPage.setVisible(false);
+                userPage.setVisible(true);
+                review.setVisible(false);
             }
             break;
             case "            Book             ": {
 
                 book();
+            } case "            Submit Review             ": {
+
+                submitReview();
             }
             break;
             case "Booking Back": {
@@ -289,7 +339,6 @@ public class Controller implements ActionListener {
                 cancelCustomer();
                 cancelled = true;
                 vBooking.setVisible(false);
-                userPage.setVisible(true);
             }
             break;
 

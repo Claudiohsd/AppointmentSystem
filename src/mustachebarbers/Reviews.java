@@ -4,16 +4,22 @@
  * and open the template in the editor.
  */
 package mustachebarbers;
+
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.InputVerifier;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.text.JTextComponent;
 
 /**
  *
@@ -26,10 +32,11 @@ public class Reviews extends JFrame {
     private JPanel panel2 = new JPanel();
     private JLabel textTf1 = new JLabel();
     private JLabel textTf2 = new JLabel();
-    private JButton cancel = new JButton("            Cancel             ");
+    private JTextField tf1 = new JTextField(20);
+    private JButton submitReview = new JButton("            Submit Review             ");
     private JButton back = new JButton("Back");
     private JButton logout = new JButton("Logout");
-    private String selected, title, dateTime,userName;
+    private String selected, title,  barberName;
     GridLayout gLayout = new GridLayout(2, 1);
 
     Controller controller;
@@ -41,27 +48,26 @@ public class Reviews extends JFrame {
         // sets the default title to start page which will be the first page to run
         this.title = "Reviews";
         this.model = new Model();
-        this.userName = controller.getUserName();
-        //if it is the request comes from the user page, it runs this,
-
-        textTf1.setText("These are your bookings select one to cancel");
-        textTf2.setText("If the textbox is empty you have no bookings.");
+      
+        textTf1.setText("Please enter the barber name");
+        textTf2.setText("Write down your review.");
         jComboBox1.addItemListener(listener);
-        System.out.println(userName);
-        jComboBox1.setModel(new DefaultComboBoxModel<>(model.searchBooking(userName)));
+        jComboBox1.setModel(new DefaultComboBoxModel<>(model.barberReview()));
         // We encapsulated the building process of the window
         setAttributes();
         components();
         // listeners
-        cancel.addActionListener(controller);
+        submitReview.addActionListener(controller);
         logout.addActionListener(controller);
-        back.setActionCommand("ViewBooking Back");
+        back.setActionCommand("Review Back");
         back.addActionListener(controller);
         //adds the elements to the panel
         mainPanel.add(textTf1);
         mainPanel.add(jComboBox1);
-        panel2.add(cancel);
         panel2.add(textTf2);
+        panel2.add(tf1);
+        tf1.setInputVerifier(new PassVerifier());
+        panel2.add(submitReview);
         panel2.add(back);
         panel2.add(logout);
 
@@ -83,7 +89,10 @@ public class Reviews extends JFrame {
 
         this.setResizable(false);
         this.setVisible(true);
-        this.cancel.setVisible(false);
+        this.submitReview.setVisible(false);
+        this.textTf2.setVisible(false);
+        this.tf1.setVisible(false);
+        
 
     }
     // Organising the components
@@ -94,7 +103,6 @@ public class Reviews extends JFrame {
         this.add(mainPanel, BorderLayout.CENTER);
         this.add(panel2, BorderLayout.PAGE_END);
         this.setLayout(gLayout);
-        
 
     }
     // Validation and repainting
@@ -105,25 +113,28 @@ public class Reviews extends JFrame {
         //makes sure the jframe quits when closing window
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+    //getters
+    public String getBarberName() {
 
-    public String getdateTime() {
-
-        return this.dateTime;
+        return this.barberName;
     }
-    public void setUserName(String us) {
-
-       this.userName = us;
+    public String getReview() {
+        return tf1.getText();
     }
+
+
     ItemListener listener = (e) -> {
         if (e.getStateChange() == ItemEvent.SELECTED) {
             if (e.getSource() == jComboBox1) {
                 if (jComboBox1.getSelectedIndex() != 0) {
-                    selected = jComboBox1.getSelectedItem().toString();
+                    barberName = jComboBox1.getSelectedItem().toString();
                     //gets the datetime that is shown with the name and stores only the date and time into the variable
-                    this.dateTime = selected.substring(selected.indexOf("On:")+4);
-                    System.out.println(dateTime);
-                    this.cancel.setVisible(true);
 
+                    this.submitReview.setVisible(true);
+                    this.tf1.setVisible(true);
+                    this.textTf2.setVisible(true);
+                    this.tf1.requestFocusInWindow();
+                    
                 }
             }
 
@@ -131,4 +142,25 @@ public class Reviews extends JFrame {
 
     };
 
+    class PassVerifier extends InputVerifier {
+
+        public boolean verify(JComponent input) {
+            //it will make sure the fields get input from the user
+            final JTextComponent source = (JTextComponent) input;
+            String name = input.getName();
+            String s = "";
+
+            s = tf1.getText();
+            boolean valid = s.isBlank();
+            if (valid) {
+
+                JOptionPane.showMessageDialog(source, "Field cannot be empty",
+                        "Input error", JOptionPane.ERROR_MESSAGE);
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+    }
 }

@@ -45,6 +45,7 @@ public class WelcomePage extends JFrame {
         // listeners
         ChangeImg.addActionListener(controller);
         logout.addActionListener(controller);
+        logout.setActionCommand("Welcome Logout");
         next.addActionListener(controller);
         //adds the elements to the panel
         mainPanel.add(icon);
