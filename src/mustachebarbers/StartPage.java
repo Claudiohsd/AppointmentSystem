@@ -25,6 +25,7 @@ import javax.swing.text.JTextComponent;
 /**
  *
  * @author claudiodionisio
+ * student number:2019235
  */
 public class StartPage extends JFrame {
 
@@ -132,7 +133,7 @@ public class StartPage extends JFrame {
             }
 
             boolean valid = s.isBlank();
-
+            //checks if the user entered a valid email
             if (name == tf1.getName()) {
                 String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
                 if (valid = tf1.getText().matches(regex)) {
@@ -144,7 +145,7 @@ public class StartPage extends JFrame {
 
                     return false;
                 }
-            }
+            }//checks if the field is not empty
             if (valid) {
                 JOptionPane.showMessageDialog(source, "field cannot be empty.",
                         "Input error", JOptionPane.ERROR_MESSAGE);
@@ -170,7 +171,7 @@ public class StartPage extends JFrame {
         return tf1.getText();
     }
 
-    //clears the text fields
+//    clears the text fields
     public void clearTextfield() {
         tf1.setText("");
         tf2.setText("");

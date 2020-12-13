@@ -18,7 +18,7 @@ import javax.swing.text.JTextComponent;
 
 /**
  *
- * @author claudiodionisio
+ * @author claudiodionisio student number:2019235
  */
 public class Register extends JFrame {
 
@@ -58,6 +58,7 @@ public class Register extends JFrame {
         //filled before jumping to the next page.
         //set the input verifiers to make sure the fields are filled up
         message.setText("                                                  " + controller.getUserType().toUpperCase() + "                                               ");
+        //runs this if the user is a barber
         if (controller.getUserType() == "barber") {
             textTf1.setText("Name");
             tf1.setName("tf1");
@@ -108,6 +109,7 @@ public class Register extends JFrame {
             mainPanel.add(signUP);
             mainPanel.add(back);
             mainPanel.add(textTf7);
+            //runs this if the user is a customer
         } else {
             textTf1.setText("Name");
             tf1.setName("tf1");
@@ -156,6 +158,7 @@ public class Register extends JFrame {
         }
         validation();
     }
+//makes sure all the fields are filled
 
     class PassVerifier extends InputVerifier {
 
@@ -168,6 +171,10 @@ public class Register extends JFrame {
             //switch to determine which field has the focus
             switch (name) {
                 case "tf1": {
+                    s = tf1.getText();
+                }
+                break;
+                case "tf2": {
                     s = tf1.getText();
                 }
                 break;
@@ -192,11 +199,12 @@ public class Register extends JFrame {
             }
 
             boolean valid = s.isBlank();
-
+            // makes sure the user enters a number
             if (name == tf3.getName() && !tf3.getText().matches("^\\d+$")) {
                 JOptionPane.showMessageDialog(source, "field cannot be empty and it should be a number.",
                         "Input error", JOptionPane.ERROR_MESSAGE);
                 return false;
+                //makes sure the user enters an email
             } else if (name == tf8.getName()) {
                 String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
                 if (valid = tf8.getText().matches(regex)) {
@@ -209,6 +217,7 @@ public class Register extends JFrame {
                     return false;
                 }
             }
+            //makes sure the field is not empty
             if (valid) {
                 JOptionPane.showMessageDialog(source, "field cannot be empty.",
                         "Input error", JOptionPane.ERROR_MESSAGE);
@@ -264,7 +273,8 @@ public class Register extends JFrame {
     }
 
     public int getPhone() {
-        return Integer.parseInt(tf3.getText());
+        int phone = Integer.parseInt(tf3.getText());
+        return phone;
     }
 
     public String getEmail() {

@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 /**
  *
  * @author claudiodionisio
+ * student number:2019235
  */
 public class UserPage extends JFrame {
 
@@ -27,7 +28,7 @@ public class UserPage extends JFrame {
     private JButton b3 = new JButton();
     private String title;
     private JButton logout = new JButton("Logout");
-    private boolean booked, cancelled, savedReview= false;
+    private boolean booked, cancelled, savedReview, update= false;
     GridLayout gLayout = new GridLayout(4, 1);
 
     Controller controller;
@@ -40,6 +41,8 @@ public class UserPage extends JFrame {
         this.booked = controller.getBooked();
         this.cancelled = controller.getCancelled();
         this.savedReview = controller.getSavedReview();
+        this.update = controller.getUpdate();
+        //defines wether the user is a barber or a customer
         if ("CUSTOMER".equals(title)) {
             this.b1.setText("Search Barber/Location");
             this.b2.setText("       View Booking        ");
@@ -50,8 +53,8 @@ public class UserPage extends JFrame {
             this.b2.setText("       Set Availability        ");
             this.b3.setText("            Set Status           ");
         }
+        //defines if a pop up message will appear on the screen or not, the message will vary depending on the page requesting the user page 
         if (booked) {
-
             JFrame f = new JFrame();
             JOptionPane.showMessageDialog(f, "Slot successfully Booked!");
         } else if (cancelled) {
@@ -60,6 +63,10 @@ public class UserPage extends JFrame {
         }else if (savedReview){
             JFrame f = new JFrame();
             JOptionPane.showMessageDialog(f, "Review successfully Submitted!");
+        
+        }else if (update){
+            JFrame f = new JFrame();
+            JOptionPane.showMessageDialog(f, "The booking was updated!");
         
         }
         // We encapsulated the building process of the window
@@ -116,16 +123,6 @@ public class UserPage extends JFrame {
         this.repaint();
         //makes sure the jframe quits when closing window
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    }
-
-    public class OptionPane {
-
-        JFrame f;
-
-        OptionPane() {
-            f = new JFrame();
-            JOptionPane.showMessageDialog(f, "Slot successfully Booked!");
-        }
     }
 
 }

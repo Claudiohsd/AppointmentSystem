@@ -19,6 +19,7 @@ import javax.swing.JPanel;
 /**
  *
  * @author claudiodionisio
+ * student number:2019235
  */
 public class Search extends JFrame {
 
@@ -38,7 +39,7 @@ public class Search extends JFrame {
     private JButton back = new JButton("Back");
     private JButton logout = new JButton("Logout");
     private String selected, title, dateTime;
-     GridLayout gLayout = new GridLayout(4, 1);
+    GridLayout gLayout = new GridLayout(4, 1);
     Controller controller;
     Model model;
 
@@ -47,10 +48,11 @@ public class Search extends JFrame {
         // sets the default title to start page which will be the first page to run
         this.title = "Search";
         this.model = new Model();
+        //makes sure the program wont crash in case a method tries to acces the variable date time before its initialized
         if (dateTime == null) {
             dateTime = "";
         }
-
+        // sets the text on to the panels
         textTf1.setText("       Select a location, a barber and a slot");
         textTf2.setText("Location");
         textTf3.setText("Barber");
@@ -86,6 +88,7 @@ public class Search extends JFrame {
         validation();
     }
 
+    //populates the comboboxes
     public void populateJCB2() {
         jComboBox2.setModel(new DefaultComboBoxModel<>(model.searchBarber(selected)));
     }
@@ -140,6 +143,7 @@ public class Search extends JFrame {
 
         return this.dateTime;
     }
+    //makes sure all the boxes are selected
     ItemListener listener = (e) -> {
         if (e.getStateChange() == ItemEvent.SELECTED) {
             if (e.getSource() == jComboBox1) {

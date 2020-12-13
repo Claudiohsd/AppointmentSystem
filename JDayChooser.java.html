@@ -1,0 +1,1459 @@
+<!DOCTYPE html><html><head><meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1 user-scalable=0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><title>JDayChooser.java example</title><meta name="description" content="This class describes the usage of JDayChooser.java." /><link rel="canonical" href="https://www.javatips.net/api/get-organized-master/JCalendar_GO/src/com/toedter/calendar/JDayChooser.java" /><style>	@media screen and (max-width: 768px) { div#sidemenu { display: none !important; } div.col1 { width: 100% !important; } div.col2 { display: none !important; } div#code { margin-left: 1px !important; overflow: unset !important; } } </style><script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="d5ea40fa73c749a51f7790c9-|49"></script><link rel="stylesheet" href="/themes/api/css/bootstrap.css" media="none" onload="if(media!='all')media='all'" /><noscript><link rel="stylesheet" href="/themes/api/css/bootstrap.css"></noscript><script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="d5ea40fa73c749a51f7790c9-|49"></script><link rel="stylesheet" href="/themes/imby/css/style.css" media="none" onload="if(media!='all')media='all'" /><noscript><link rel="stylesheet" href="/themes/imby/css/style.css"></noscript><script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="d5ea40fa73c749a51f7790c9-|49"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.8/themes/default/style.min.css" media="none" onload="if(media!='all')media='all'" /><noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.8/themes/default/style.min.css"></noscript><script type="d5ea40fa73c749a51f7790c9-text/javascript" src='//services.vlitag.com/adv1/?q=47cad670105f3beb543c54e8471429c6' defer='' async=''></script><script type="d5ea40fa73c749a51f7790c9-text/javascript">var vitag = vitag || {}; vitag.outStreamConfig = { enablePC:false, enableMobile:false, position: 'right'}; vitag.smartBannerConfig = { enablePC: false, enableMobile: false, disableHorizontalPosition: 'right left', disableVerticalPosition: 'top middle' };</script></head><script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="d5ea40fa73c749a51f7790c9-|49"></script><body onload="prettyPrint() "><script async src="//m.servedby-buysellads.com/monetization.js" type="d5ea40fa73c749a51f7790c9-text/javascript"></script><header id="sticky" class="main-header" style="top: 0px; position: fixed;"><div class="container"><div id="header"><div class="logo-wrap"><h2><a class='social javatips' title="Javatips.net" href="https://www.javatips.net"></a></h2></div><div class="main-navigation"><nav id="navigation" class="clearfix"><ul id="menu-menu" class="menu clearfix sf-js-enabled"><li id="home"><a href="/">Home</a></li><li id="java"><a href="/blog/category/java">Java</a></li><li id="jstl"><a href="/blog/category/jstl">JSTL</a></li><li id="struts"><a href="/blog/category/struts">Struts</a></li><li id="spring"><a href="/blog/category/spring">Spring</a></li><li id="hibernate"><a href="/blog/category/hibernate">Hibernate</a></li><li id="webservice"><a href="/blog/category/webservice">Webservice</a></li><li id="eclipse"><a href="/blog/category/eclipse">Eclipse</a></li><li id="api"><a href="/api/">API</a></li><li id="guest"><a href="/blog/page/guest">Guest Post</a></li></ul><a href="#" id="pull">Menu</a></nav></div></div></div></header><div id='view' style='display:block'><div id='sidemenu'><div class='ui-tabs'><ul class='ui-tabs-nav ui-helper-clearfix ui-widget-header'><li class='ui-state-active'><a class='ui-tabs-anchor'>Explorer</a></li></ul></div><div id='jstree' style='display:block'><ul><li>get-organized-master<ul><li>App<ul><li>src<ul><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/GetOrganized.java">GetOrganized.java</a></li><li>adl<ul><li>go<ul><li>gui<ul><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/gui/AboutDialog.java">AboutDialog.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/gui/ColoredComponent.java">ColoredComponent.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/gui/ColoredJMenuBar.java">ColoredJMenuBar.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/gui/ColoredJPanel.java">ColoredJPanel.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/gui/ColoredJToolBar.java">ColoredJToolBar.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/gui/ComboListItem.java">ComboListItem.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/gui/Domain.java">Domain.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/gui/DragDrop.java">DragDrop.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/gui/EscapeDialog.java">EscapeDialog.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/gui/ExtendedJTable.java">ExtendedJTable.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/gui/ExtendedSettingsTableModel.java">ExtendedSettingsTableModel.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/gui/ExtendedTableModel.java">ExtendedTableModel.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/gui/ExtensionFileFilter.java">ExtensionFileFilter.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/gui/GettingStartedDialog.java">GettingStartedDialog.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/gui/GradesDialog.java">GradesDialog.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/gui/GradesGraphPanel.java">GradesGraphPanel.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/gui/HeliumDialog.java">HeliumDialog.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/gui/ImportFromBackupDialog.java">ImportFromBackupDialog.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/gui/MainFrame.java">MainFrame.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/gui/PrintDialog.java">PrintDialog.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/gui/SettingsDialog.java">SettingsDialog.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/gui/TermsAndCoursesDialog.java">TermsAndCoursesDialog.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/gui/Theme.java">Theme.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/gui/ToolbarButton.java">ToolbarButton.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/gui/ViewPanel.java">ViewPanel.java</a></li><li>colorpicker<ul><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/gui/colorpicker/ColorPicker.java">ColorPicker.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/gui/colorpicker/ColorPickerDialog.java">ColorPickerDialog.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/gui/colorpicker/ColorPickerPanel.java">ColorPickerPanel.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/gui/colorpicker/ColorPickerSliderUI.java">ColorPickerSliderUI.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/gui/colorpicker/ColorSwatch.java">ColorSwatch.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/gui/colorpicker/ImageTransferable.java">ImageTransferable.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/gui/colorpicker/PaintUtils.java">PaintUtils.java</a></li></ul></ul><li>resource<ul><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/resource/LocalUtility.java">LocalUtility.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/resource/Preferences.java">Preferences.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/resource/PrintUtilities.java">PrintUtilities.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/resource/Updater.java">Updater.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/resource/UserDetails.java">UserDetails.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/resource/Utility.java">Utility.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/resource/WorkerThread.java">WorkerThread.java</a></li></ul><li>types<ul><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/types/Assignment.java">Assignment.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/types/AssignmentType.java">AssignmentType.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/types/Category.java">Category.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/types/Course.java">Course.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/types/Event.java">Event.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/types/EventYear.java">EventYear.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/types/ExtendedJPanelForAssignment.java">ExtendedJPanelForAssignment.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/types/ExtendedJPanelForEvent.java">ExtendedJPanelForEvent.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/types/ExtendedTreeNode.java">ExtendedTreeNode.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/types/Instructor.java">Instructor.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/types/ListItem.java">ListItem.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/types/Repeating.java">Repeating.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/types/Term.java">Term.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/App/src/adl/go/types/Textbook.java">Textbook.java</a></li></ul></ul></ul></ul></ul><li>JCalendar_GO<ul><li>src<ul><li>com<ul><li>toedter<ul><li>calendar<ul><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/JCalendar_GO/src/com/toedter/calendar/DateUtil.java">DateUtil.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/JCalendar_GO/src/com/toedter/calendar/IDateEditor.java">IDateEditor.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/JCalendar_GO/src/com/toedter/calendar/JCalendar.java">JCalendar.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/JCalendar_GO/src/com/toedter/calendar/JCalendarBeanInfo.java">JCalendarBeanInfo.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/JCalendar_GO/src/com/toedter/calendar/JDateChooser.java">JDateChooser.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/JCalendar_GO/src/com/toedter/calendar/JDateChooserBeanInfo.java">JDateChooserBeanInfo.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/JCalendar_GO/src/com/toedter/calendar/JDateChooserCellEditor.java">JDateChooserCellEditor.java</a></li><li data-jstree='{"icon":"jstree-file","selected":true}'><a href="/api/get-organized-master/JCalendar_GO/src/com/toedter/calendar/JDayChooser.java"><b>JDayChooser.java</b></a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/JCalendar_GO/src/com/toedter/calendar/JDayChooserBeanInfo.java">JDayChooserBeanInfo.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/JCalendar_GO/src/com/toedter/calendar/JMonthChooser.java">JMonthChooser.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/JCalendar_GO/src/com/toedter/calendar/JMonthChooserBeanInfo.java">JMonthChooserBeanInfo.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/JCalendar_GO/src/com/toedter/calendar/JSpinnerDateEditor.java">JSpinnerDateEditor.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/JCalendar_GO/src/com/toedter/calendar/JTextFieldDateEditor.java">JTextFieldDateEditor.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/JCalendar_GO/src/com/toedter/calendar/JYearChooser.java">JYearChooser.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/JCalendar_GO/src/com/toedter/calendar/JYearChooserBeanInfo.java">JYearChooserBeanInfo.java</a></li><li>demo<ul><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/JCalendar_GO/src/com/toedter/calendar/demo/DateChooserPanel.java">DateChooserPanel.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/JCalendar_GO/src/com/toedter/calendar/demo/DateChooserPanelBeanInfo.java">DateChooserPanelBeanInfo.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/JCalendar_GO/src/com/toedter/calendar/demo/DemoTable.java">DemoTable.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/JCalendar_GO/src/com/toedter/calendar/demo/JCalendarDemo.java">JCalendarDemo.java</a></li></ul></ul><li>components<ul><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/JCalendar_GO/src/com/toedter/components/GenericBeanInfo.java">GenericBeanInfo.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/JCalendar_GO/src/com/toedter/components/JLocaleChooser.java">JLocaleChooser.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/JCalendar_GO/src/com/toedter/components/JLocaleChooserBeanInfo.java">JLocaleChooserBeanInfo.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/JCalendar_GO/src/com/toedter/components/JSpinField.java">JSpinField.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/JCalendar_GO/src/com/toedter/components/JSpinFieldBeanInfo.java">JSpinFieldBeanInfo.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/JCalendar_GO/src/com/toedter/components/JTitlePanel.java">JTitlePanel.java</a></li><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/JCalendar_GO/src/com/toedter/components/LocaleEditor.java">LocaleEditor.java</a></li></ul><li>plaf<ul><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/JCalendar_GO/src/com/toedter/plaf/JCalendarTheme.java">JCalendarTheme.java</a></li></ul></ul></ul></ul></ul><li>Updater<ul><li>src<ul><li data-jstree='{"icon":"jstree-file"}'><a href="/api/get-organized-master/Updater/src/GetOrganizedUpdater.java">GetOrganizedUpdater.java</a></li></ul></ul></ul></li></ul></div></div><div id='code'><br /><br /><br /><div class='adsbyvli' data-ad-slot='vi_14173526'></div> <script type="d5ea40fa73c749a51f7790c9-text/javascript">(vitag.Init = window.vitag.Init || []).push(function () { viAPItag.display('vi_14173526') })</script><pre class='prettyprint' style='background-color:#FFFFFF;font-size:14px;padding: 0px;border:none'><code><div class="bottom"><div class="col1">/*
+ *  JDayChooser.java  - A bean for choosing a day
+ *  Copyright (C) 2004 Kai Toedter
+ *  kai@toedter.com
+ *  www.toedter.com
+ *
+ *  This program is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Lesser General Public License
+ *  as published by the Free Software Foundation; either version 2
+ *  of the License, or (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITYsundayFore or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU Lesser General Public License for more details.
+ *
+ *  You should have received a copy of the GNU Lesser General Public License
+ *  along with this program; if not, write to the Free Software
+ *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ */
+
+package com.toedter.calendar;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.GridLayout;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseListener;
+
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.UIManager;
+
+/**
+ * JDayChooser is a bean for choosing a day.
+ * 
+ * @author Kai Toedter
+ * @version $LastChangedRevision: 107 $
+ * @version $LastChangedDate: 2009-05-01 15:48:00 +0200 (Fr, 01 Mai 2009) $
+ */
+public class JDayChooser extends JPanel implements ActionListener, KeyListener,
+                                                   FocusListener
+{
+    private static final long serialVersionUID = 5876398337018781820L;
+    protected JButton[] days;
+    protected JButton[] weeks;
+    protected JMonthChooser monthChooser;
+    protected JYearChooser yearChooser;
+    protected JButton selectedDay;
+    protected JPanel weekPanel;
+    protected JPanel dayPanel;
+    protected int day;
+    protected Color todayColor;
+    protected Color oldDayBackgroundColor;
+    protected Color dayOutsideMonthBackground;
+    protected Color selectedColor;
+    protected Color sundayForeground;
+    protected Color weekdayForeground;
+    protected Color decorationBackgroundColor;
+    protected String[] dayNames = new String[] {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+    protected Calendar calendar;
+    protected Calendar today;
+    protected Locale locale;
+    protected boolean initialized;
+    protected boolean weekOfYearVisible;
+    protected boolean decorationBackgroundVisible = true;
+    protected boolean decorationBordersVisible;
+    protected boolean dayBordersVisible;
+    protected boolean monthChange = false;
+    private boolean alwaysFireDayProperty;
+    protected Date minSelectableDate;
+    protected Date maxSelectableDate;
+    protected Date defaultMinSelectableDate;
+    protected Date defaultMaxSelectableDate;
+    protected int maxDayCharacters;
+
+    /**
+     * Default JDayChooser constructor.
+     */
+    public JDayChooser(JMonthChooser monthChooser, JYearChooser yearChooser)
+    {
+        this (false, monthChooser, yearChooser);
+    }
+
+    /**
+     * JDayChooser constructor.
+     *
+     * @param weekOfYearVisible
+     *            true, if the weeks of a year shall be shown
+     */
+    public JDayChooser(boolean weekOfYearVisible, JMonthChooser monthChooser, JYearChooser yearChooser)
+    {
+        setName ("JDayChooser");
+        this.monthChooser = monthChooser;
+        this.yearChooser = yearChooser;
+        setBackground (Color.blue);
+        this.weekOfYearVisible = weekOfYearVisible;
+        locale = Locale.getDefault ();
+        days = new JButton[49];
+        selectedDay = null;
+        calendar = Calendar.getInstance (locale);
+        calendar.setTime (new Date ());
+        today = (Calendar) calendar.clone ();
+
+        setLayout (new BorderLayout ());
+        setOpaque (false);
+
+        dayPanel = new JPanel ();
+        dayPanel.setOpaque (false);
+        dayPanel.setLayout (new GridLayout (7, 7));
+
+        todayColor = new Color (0, 175, 0);
+        sundayForeground = new Color (164, 0, 0);
+        weekdayForeground = new Color (0, 90, 164);
+
+        decorationBackgroundColor = new Color (210, 228, 238);
+
+        for (int y = 0; y &lt; 7; y++)
+        {
+            for (int x = 0; x &lt; 7; x++)
+            {
+                int index = x + (7 * y);
+
+                if (y == 0)
+                {
+                    // Create a button that doesn't react on clicks or focus
+                    // changes.
+                    // Thanks to Thomas Schaefer for the focus hint :)
+                    days[index] = new DecoratorButton ();
+                }
+                else
+                {
+                    days[index] = new JButton ("x")
+                    {
+                        private static final long serialVersionUID = -7433645992591669725L;
+
+                        public void paint(Graphics g)
+                        {
+                            if ("Windows".equals (UIManager.getLookAndFeel ().getID ()))
+                            {
+                                // this is a hack to get the background painted
+                                // when using Windows Look & Feel
+                                if (selectedDay == this)
+                                {
+                                    g.setColor (selectedColor);
+                                    g.fillRect (0, 0, getWidth (), getHeight ());
+                                }
+                            }
+                            super.paint (g);
+                        }
+                    };
+                    days[index].addActionListener (this);
+                    days[index].addKeyListener (this);
+                    days[index].addFocusListener (this);
+                }
+
+                days[index].setMargin (new Insets (0, 0, 0, 0));
+                days[index].setFocusPainted (false);
+                dayPanel.add (days[index]);
+            }
+        }
+
+        weekPanel = new JPanel ();
+        weekPanel.setOpaque (false);
+        weekPanel.setLayout (new GridLayout (7, 1));
+        weeks = new JButton[7];
+
+        for (int i = 0; i &lt; 7; i++)
+        {
+            weeks[i] = new DecoratorButton ();
+            weeks[i].setMargin (new Insets (0, 0, 0, 0));
+            weeks[i].setFocusPainted (false);
+            weeks[i].setForeground (new Color (100, 100, 100));
+
+            if (i != 0)
+            {
+                weeks[i].setText ("0" + (i + 1));
+            }
+
+            weekPanel.add (weeks[i]);
+        }
+
+        Calendar tmpCalendar = Calendar.getInstance ();
+        tmpCalendar.set (1, 0, 1, 1, 1);
+        defaultMinSelectableDate = tmpCalendar.getTime ();
+        minSelectableDate = defaultMinSelectableDate;
+        tmpCalendar.set (9999, 0, 1, 1, 1);
+        defaultMaxSelectableDate = tmpCalendar.getTime ();
+        maxSelectableDate = defaultMaxSelectableDate;
+
+        init ();
+
+        setDay (Calendar.getInstance ().get (Calendar.DAY_OF_MONTH));
+        add (dayPanel, BorderLayout.CENTER);
+
+        if (weekOfYearVisible)
+        {
+            add (weekPanel, BorderLayout.WEST);
+        }
+        initialized = true;
+        updateUI ();
+    }
+
+    /**
+     * Initilizes the locale specific names for the days of the week.
+     */
+    protected void init()
+    {
+        oldDayBackgroundColor = new Color (246, 245, 245);
+        dayOutsideMonthBackground = new Color (220, 220, 220);
+        selectedColor = new Color (160, 160, 160);
+
+        Date date = calendar.getTime ();
+        calendar = Calendar.getInstance (locale);
+        calendar.setTime (date);
+
+        drawDayNames ();
+        drawDays ();
+    }
+
+    /**
+     * Set the day names array.
+     *
+     * @param dayNames The short names for weekdays.
+     */
+    public void setDayNames(String[] dayNames)
+    {
+        this.dayNames = dayNames;
+        drawDayNames ();
+    }
+
+    public void setTodayColor (Color color)
+    {
+        todayColor = color;
+    }
+
+    /**
+     * Draws the day names of the day columnes.
+     */
+    public void drawDayNames()
+    {
+        for (int i = 0; i &lt; 7; i++)
+        {
+            if (maxDayCharacters > 0 && maxDayCharacters &lt; 5)
+            {
+                if (dayNames[i].length () >= maxDayCharacters)
+                {
+                    dayNames[i] = dayNames[i].substring (0, maxDayCharacters);
+                }
+            }
+
+            days[i].setText (dayNames[i]);
+
+            if (i == 0)
+            {
+                days[i].setForeground (sundayForeground);
+            }
+            else
+            {
+                days[i].setForeground (weekdayForeground);
+            }
+
+            if (day &lt; 7)
+            {
+                day++;
+            }
+            else
+            {
+                day -= 6;
+            }
+        }
+    }
+
+    /**
+     * Initializes both day names and weeks of the year.
+     */
+    protected void initDecorations()
+    {
+        for (int x = 0; x &lt; 7; x++)
+        {
+            days[x].setContentAreaFilled (decorationBackgroundVisible);
+            days[x].setBorderPainted (decorationBordersVisible);
+            days[x].invalidate ();
+            days[x].repaint ();
+            weeks[x].setContentAreaFilled (decorationBackgroundVisible);
+            weeks[x].setBorderPainted (decorationBordersVisible);
+            weeks[x].invalidate ();
+            weeks[x].repaint ();
+        }
+    }
+
+    /**
+     * Hides and shows the week buttons.
+     */
+    protected void drawWeeks()
+    {
+        Calendar tmpCalendar = (Calendar) calendar.clone ();
+
+        for (int i = 1; i &lt; 7; i++)
+        {
+            tmpCalendar.set (Calendar.DAY_OF_MONTH, (i * 7) - 6);
+
+            int week = tmpCalendar.get (Calendar.WEEK_OF_YEAR);
+            String buttonText = Integer.toString (week);
+
+            if (week &lt; 10)
+            {
+                buttonText = "0" + buttonText;
+            }
+
+            weeks[i].setText (buttonText);
+
+            if ((i == 5) || (i == 6))
+            {
+                weeks[i].setVisible (days[i * 7].isVisible ());
+            }
+        }
+    }
+
+    /**
+     * Hides and shows the day buttons.
+     */
+    public void drawDays()
+    {
+        Calendar todayCal = Calendar.getInstance ();
+        todayCal.setTime (new Date ());
+        today = (Calendar) todayCal.clone ();
+        
+        Calendar tmpCalendar = (Calendar) calendar.clone ();
+        tmpCalendar.set (Calendar.HOUR_OF_DAY, 0);
+        tmpCalendar.set (Calendar.MINUTE, 0);
+        tmpCalendar.set (Calendar.SECOND, 0);
+        tmpCalendar.set (Calendar.MILLISECOND, 0);
+
+        Calendar minCal = Calendar.getInstance ();
+        minCal.setTime (minSelectableDate);
+        minCal.set (Calendar.HOUR_OF_DAY, 0);
+        minCal.set (Calendar.MINUTE, 0);
+        minCal.set (Calendar.SECOND, 0);
+        minCal.set (Calendar.MILLISECOND, 0);
+
+        Calendar maxCal = Calendar.getInstance ();
+        maxCal.setTime (maxSelectableDate);
+        maxCal.set (Calendar.HOUR_OF_DAY, 0);
+        maxCal.set (Calendar.MINUTE, 0);
+        maxCal.set (Calendar.SECOND, 0);
+        maxCal.set (Calendar.MILLISECOND, 0);
+
+        int firstDayOfWeek = tmpCalendar.getFirstDayOfWeek ();
+        tmpCalendar.set (Calendar.DAY_OF_MONTH, 1);
+
+        int firstDay = tmpCalendar.get (Calendar.DAY_OF_WEEK) - firstDayOfWeek;
+
+        if (firstDay &lt; 0)
+        {
+            firstDay += 7;
+        }
+
+        int i;
+
+        Calendar tempCal = Calendar.getInstance ();
+        tempCal.setTime (tmpCalendar.getTime ());
+        tempCal.add (Calendar.DAY_OF_MONTH, -1);
+        int minDay = tempCal.get (Calendar.DAY_OF_MONTH) - firstDay + 1;
+        for (i = 0; i &lt; firstDay; i++)
+        {
+            days[i + 7].setText (minDay + "");
+            days[i + 7].setVisible (true);
+            days[i + 7].setBackground (dayOutsideMonthBackground);
+            days[i + 7].setForeground (new Color (120, 120, 120));
+            ++minDay;
+        }
+
+        tmpCalendar.add (Calendar.MONTH, 1);
+
+        Date firstDayInNextMonth = tmpCalendar.getTime ();
+        tmpCalendar.add (Calendar.MONTH, -1);
+
+        Date day = tmpCalendar.getTime ();
+        int n = 0;
+        Color foregroundColor = getForeground ();
+
+        while (day.before (firstDayInNextMonth))
+        {
+            days[i + n + 7].setText (Integer.toString (n + 1));
+            days[i + n + 7].setVisible (true);
+
+            if ((tmpCalendar.get (Calendar.DAY_OF_YEAR) == today.get (Calendar.DAY_OF_YEAR))
+                && (tmpCalendar.get (Calendar.YEAR) == today.get (Calendar.YEAR)))
+            {
+                days[i + n + 7].setForeground (todayColor);
+            }
+            else
+            {
+                days[i + n + 7].setForeground (foregroundColor);
+            }
+
+            if ((n + 1) == this.day)
+            {
+                days[i + n + 7].setBackground (selectedColor);
+                selectedDay = days[i + n + 7];
+            }
+            else
+            {
+                days[i + n + 7].setBackground (oldDayBackgroundColor);
+            }
+
+            if (tmpCalendar.before (minCal) || tmpCalendar.after (maxCal))
+            {
+                days[i + n + 7].setEnabled (false);
+            }
+            else
+            {
+                days[i + n + 7].setEnabled (true);
+            }
+
+            n++;
+            tmpCalendar.add (Calendar.DATE, 1);
+            day = tmpCalendar.getTime ();
+        }
+
+        int d = 1;
+        int end = 42;
+        if (n + i + 7 > 42)
+        {
+            end = 49;
+        }
+        for (int k = n + i + 7; k &lt; 49; k++)
+        {
+            if (k &lt; end)
+            {
+                days[k].setText (d + "");
+                days[k].setVisible (true);
+                days[k].setBackground (dayOutsideMonthBackground);
+                days[k].setForeground (new Color (120, 120, 120));
+                ++d;
+            }
+            else
+            {
+                days[k].setText ("");
+                days[k].setVisible (false);
+            }
+        }
+
+        drawWeeks ();
+    }
+
+    /**
+     * Returns the locale.
+     *
+     * @return the locale value
+     *
+     * @see #setLocale
+     */
+    public Locale getLocale()
+    {
+        return locale;
+    }
+
+    /**
+     * Sets the locale.
+     *
+     * @param locale
+     *            the new locale value
+     *
+     * @see #getLocale
+     */
+    public void setLocale(Locale locale)
+    {
+        if (!initialized)
+        {
+            super.setLocale (locale);
+        }
+        else
+        {
+            this.locale = locale;
+            super.setLocale (locale);
+            init ();
+        }
+    }
+
+    /**
+     * Marks the day as busy.
+     *
+     * @param dayNum The day of the month to set as busy.
+     * @param foreground The color to set the foreground to.
+     */
+    public void setDayForeground(int dayNum, Color foreground)
+    {
+        Calendar tmpCalendar = (Calendar) calendar.clone ();
+        tmpCalendar.set (Calendar.HOUR_OF_DAY, 0);
+        tmpCalendar.set (Calendar.MINUTE, 0);
+        tmpCalendar.set (Calendar.SECOND, 0);
+        tmpCalendar.set (Calendar.MILLISECOND, 0);
+
+        Calendar minCal = Calendar.getInstance ();
+        minCal.setTime (minSelectableDate);
+        minCal.set (Calendar.HOUR_OF_DAY, 0);
+        minCal.set (Calendar.MINUTE, 0);
+        minCal.set (Calendar.SECOND, 0);
+        minCal.set (Calendar.MILLISECOND, 0);
+
+        Calendar maxCal = Calendar.getInstance ();
+        maxCal.setTime (maxSelectableDate);
+        maxCal.set (Calendar.HOUR_OF_DAY, 0);
+        maxCal.set (Calendar.MINUTE, 0);
+        maxCal.set (Calendar.SECOND, 0);
+        maxCal.set (Calendar.MILLISECOND, 0);
+
+        int firstDayOfWeek = tmpCalendar.getFirstDayOfWeek ();
+        tmpCalendar.set (Calendar.DAY_OF_MONTH, 1);
+
+        int firstDay = tmpCalendar.get (Calendar.DAY_OF_WEEK) - firstDayOfWeek;
+
+        if (firstDay &lt; 0)
+        {
+            firstDay += 7;
+        }
+
+        int i;
+
+        Calendar tempCal = Calendar.getInstance ();
+        tempCal.setTime (tmpCalendar.getTime ());
+        tempCal.add (Calendar.DAY_OF_MONTH, -1);
+        int backDayNum = dayNum * (-1);
+        int incr = 0;
+        for (i = 0; i &lt; firstDay; i++)
+        {
+            ++incr;
+            if (incr == backDayNum)
+            {
+                days[i + 7].setForeground (foreground);
+            }
+        }
+
+        tmpCalendar.add (Calendar.MONTH, 1);
+
+        Date firstDayInNextMonth = tmpCalendar.getTime ();
+        tmpCalendar.add (Calendar.MONTH, -1);
+
+        Date day = tmpCalendar.getTime ();
+        int n = 0;
+
+        while (day.before (firstDayInNextMonth))
+        {
+            if (dayNum >= 0 && n == dayNum - 1)
+            {
+                days[i + n + 7].setForeground (foreground);
+            }
+
+            n++;
+            tmpCalendar.add (Calendar.DATE, 1);
+            day = tmpCalendar.getTime ();
+        }
+
+        dayNum += (6 + incr);
+
+        int d = n + i + 7;
+        int end = 42;
+        if (n + i + 7 > 42)
+        {
+            end = 49;
+        }
+        for (int k = n + i + 7; k &lt; end; k++)
+        {
+            if (k &lt; end)
+            {
+                if (k == dayNum)
+                {
+                    days[k].setForeground (foreground);
+                }
+            }
+        }
+    }
+
+    /**
+     * Reverts all day foregrounds back to their default colors.
+     */
+    public void revertAllDayForegrounds()
+    {
+        Calendar tmpCalendar = (Calendar) calendar.clone ();
+        tmpCalendar.set (Calendar.HOUR_OF_DAY, 0);
+        tmpCalendar.set (Calendar.MINUTE, 0);
+        tmpCalendar.set (Calendar.SECOND, 0);
+        tmpCalendar.set (Calendar.MILLISECOND, 0);
+
+        Calendar minCal = Calendar.getInstance ();
+        minCal.setTime (minSelectableDate);
+        minCal.set (Calendar.HOUR_OF_DAY, 0);
+        minCal.set (Calendar.MINUTE, 0);
+        minCal.set (Calendar.SECOND, 0);
+        minCal.set (Calendar.MILLISECOND, 0);
+
+        Calendar maxCal = Calendar.getInstance ();
+        maxCal.setTime (maxSelectableDate);
+        maxCal.set (Calendar.HOUR_OF_DAY, 0);
+        maxCal.set (Calendar.MINUTE, 0);
+        maxCal.set (Calendar.SECOND, 0);
+        maxCal.set (Calendar.MILLISECOND, 0);
+
+        int firstDayOfWeek = tmpCalendar.getFirstDayOfWeek ();
+        tmpCalendar.set (Calendar.DAY_OF_MONTH, 1);
+
+        int firstDay = tmpCalendar.get (Calendar.DAY_OF_WEEK) - firstDayOfWeek;
+
+        if (firstDay &lt; 0)
+        {
+            firstDay += 7;
+        }
+
+        int i;
+
+        Calendar tempCal = Calendar.getInstance ();
+        tempCal.setTime (tmpCalendar.getTime ());
+        tempCal.add (Calendar.DAY_OF_MONTH, -1);
+        int minDay = tempCal.get (Calendar.DAY_OF_MONTH) - firstDay + 1;
+        for (i = 0; i &lt; firstDay; i++)
+        {
+            days[i + 7].setText (minDay + "");
+            days[i + 7].setVisible (true);
+            days[i + 7].setBackground (dayOutsideMonthBackground);
+            days[i + 7].setForeground (new Color (120, 120, 120));
+            ++minDay;
+        }
+
+        tmpCalendar.add (Calendar.MONTH, 1);
+
+        Date firstDayInNextMonth = tmpCalendar.getTime ();
+        tmpCalendar.add (Calendar.MONTH, -1);
+
+        Date day = tmpCalendar.getTime ();
+        int n = 0;
+        Color foregroundColor = getForeground ();
+
+        while (day.before (firstDayInNextMonth))
+        {
+            if ((tmpCalendar.get (Calendar.DAY_OF_YEAR) != today.get (Calendar.DAY_OF_YEAR))
+                || (tmpCalendar.get (Calendar.YEAR) != today.get (Calendar.YEAR)))
+            {
+                days[i + n + 7].setForeground (foregroundColor);
+            }
+            else
+            {
+                days[i + n + 7].setForeground (todayColor);
+            }
+
+            n++;
+            tmpCalendar.add (Calendar.DATE, 1);
+            day = tmpCalendar.getTime ();
+        }
+
+        int d = 1;
+        int end = 42;
+        if (n + i + 7 > 42)
+        {
+            end = 49;
+        }
+        for (int k = n + i + 7; k &lt; 49; k++)
+        {
+            if (k &lt; end)
+            {
+                days[k].setText (d + "");
+                days[k].setVisible (true);
+                days[k].setBackground (dayOutsideMonthBackground);
+                days[k].setForeground (new Color (120, 120, 120));
+                ++d;
+            }
+            else
+            {
+                days[k].setText ("");
+                days[k].setVisible (false);
+            }
+        }
+    }
+
+    /**
+     * Sets the day. This is a bound property.
+     *
+     * @param d
+     *            the day
+     *
+     * @see #getDay
+     */
+    public void setDay(int d)
+    {
+        if (d &lt; 1)
+        {
+            d = 1;
+        }
+        Calendar tmpCalendar = (Calendar) calendar.clone ();
+        tmpCalendar.set (Calendar.DAY_OF_MONTH, 1);
+        tmpCalendar.add (Calendar.MONTH, 1);
+        tmpCalendar.add (Calendar.DATE, -1);
+
+        int maxDaysInMonth = tmpCalendar.get (Calendar.DATE);
+
+        if (d > maxDaysInMonth)
+        {
+            d = maxDaysInMonth;
+        }
+
+        int oldDay = day;
+        day = d;
+
+        if (selectedDay != null)
+        {
+            selectedDay.setBackground (oldDayBackgroundColor);
+            selectedDay.repaint ();
+        }
+
+        for (int i = 7; i &lt; 49; i++)
+        {
+            if (days[i].getBackground () == oldDayBackgroundColor
+                && days[i].getText ().equals (Integer.toString (day)))
+            {
+                selectedDay = days[i];
+                selectedDay.setBackground (selectedColor);
+                break;
+            }
+        }
+
+        if (alwaysFireDayProperty)
+        {
+            firePropertyChange ("day", 0, day);
+        }
+        else
+        {
+            firePropertyChange ("day", oldDay, day);
+        }
+    }
+
+    /**
+     * this is needed for JDateChooser.
+     *
+     * @param alwaysFire
+     *            true, if day property shall be fired every time a day is
+     *            chosen.
+     */
+    public void setAlwaysFireDayProperty(boolean alwaysFire)
+    {
+        alwaysFireDayProperty = alwaysFire;
+    }
+
+    /**
+     * Returns the selected day.
+     *
+     * @return the day value
+     *
+     * @see #setDay
+     */
+    public int getDay()
+    {
+        return day;
+    }
+
+    /**
+     * Sets a specific month. This is needed for correct graphical
+     * representation of the days.
+     *
+     * @param month
+     *            the new month
+     */
+    public void setMonth(int month)
+    {
+        if (month &lt; 0)
+        {
+            setYear (calendar.get (Calendar.YEAR) - 1);
+            month = 11;
+        }
+        else if (month > 11)
+        {
+            setYear (calendar.get (Calendar.YEAR) + 1);
+            month = 0;
+        }
+        calendar.set (Calendar.MONTH, month);
+        int maxDays = calendar.getActualMaximum (Calendar.DAY_OF_MONTH);
+
+        int adjustedDay = day;
+        if (day > maxDays)
+        {
+            adjustedDay = maxDays;
+            setDay (adjustedDay);
+        }
+
+        drawDays ();
+    }
+
+    /**
+     * Sets a specific year. This is needed for correct graphical representation
+     * of the days.
+     *
+     * @param year
+     *            the new year
+     */
+    public void setYear(int year)
+    {
+        calendar.set (Calendar.YEAR, year);
+        drawDays ();
+    }
+
+    /**
+     * Sets a specific calendar. This is needed for correct graphical
+     * representation of the days.
+     *
+     * @param calendar
+     *            the new calendar
+     */
+    public void setCalendar(Calendar calendar)
+    {
+        this.calendar = calendar;
+        drawDays ();
+    }
+
+    /**
+     * Sets the font property.
+     *
+     * @param font
+     *            the new font
+     */
+    public void setFont(Font font)
+    {
+        if (days != null)
+        {
+            for (int i = 0; i &lt; 49; i++)
+            {
+                days[i].setFont (font);
+            }
+        }
+        if (weeks != null)
+        {
+            for (int i = 0; i &lt; 7; i++)
+            {
+                weeks[i].setFont (font);
+            }
+        }
+    }
+
+    /**
+     * Sets the foregroundColor color.
+     *
+     * @param foreground
+     *            the new foregroundColor
+     */
+    public void setForeground(Color foreground)
+    {
+        super.setForeground (foreground);
+
+        if (days != null)
+        {
+            for (int i = 7; i &lt; 49; i++)
+            {
+                days[i].setForeground (foreground);
+            }
+
+            drawDays ();
+        }
+    }
+
+    /**
+     * JDayChooser is the ActionListener for all day buttons.
+     *
+     * @param e
+     *            the ActionEvent
+     */
+    public void actionPerformed(ActionEvent e)
+    {
+        JButton button = (JButton) e.getSource ();
+        String buttonText = button.getText ();
+        int localDay = new Integer (buttonText).intValue ();
+        if (button.getBackground () != dayOutsideMonthBackground)
+        {
+            setDay (localDay);
+        }
+        else
+        {
+            Date oldDate = calendar.getTime ();
+            monthChange = true;
+            int month = calendar.get (Calendar.MONTH);
+            if (localDay > 7)
+            {
+                firePropertyChange ("month", month, month - 1);
+                setMonth (month - 1);
+            }
+            else
+            {
+                firePropertyChange ("month", month, month + 1);
+                setMonth (month + 1);
+            }
+            setDay (localDay);
+            Calendar tmpCalendar = (Calendar) calendar.clone ();
+            tmpCalendar.set (Calendar.DAY_OF_MONTH, localDay);
+
+            firePropertyChange ("date", oldDate, tmpCalendar.getTime ());
+            firePropertyChange ("refreshBusy", null, null);
+            monthChange = false;
+        }
+    }
+
+    /**
+     * JDayChooser is the FocusListener for all day buttons. (Added by Thomas
+     * Schaefer)
+     *
+     * @param e
+     *            the FocusEvent
+     */
+    /*
+     * Code below commented out by Mark Brown on 24 Aug 2004. This code breaks
+     * the JDateChooser code by triggering the actionPerformed method on the
+     * next day button. This causes the date chosen to always be incremented by
+     * one day.
+     */
+    public void focusGained(FocusEvent e)
+    {
+        // JButton button = (JButton) e.getSource();
+        // String buttonText = button.getText();
+        //
+        // if ((buttonText != null) && !buttonText.equals("") &&
+        // !e.isTemporary()) {
+        // actionPerformed(new ActionEvent(e.getSource(), 0, null));
+        // }
+    }
+
+    /**
+     * Does nothing.
+     *
+     * @param e
+     *            the FocusEvent
+     */
+    public void focusLost(FocusEvent e)
+    {
+    }
+
+    /**
+     * JDayChooser is the KeyListener for all day buttons. (Added by Thomas
+     * Schaefer and modified by Austin Moore)
+     *
+     * @param e
+     *            the KeyEvent
+     */
+    public void keyPressed(KeyEvent e)
+    {
+        int offset = (e.getKeyCode () == KeyEvent.VK_UP) ? (-7) : ((e.getKeyCode () == KeyEvent.VK_DOWN) ? (+7)
+                                                                   : ((e.getKeyCode () == KeyEvent.VK_LEFT) ? (-1) : ((e.getKeyCode () == KeyEvent.VK_RIGHT) ? (+1) : 0)));
+
+        int newDay = getDay () + offset;
+
+        if ((newDay >= 1)
+            && (newDay &lt;= calendar.getMaximum (Calendar.DAY_OF_MONTH)))
+        {
+            setDay (newDay);
+        }
+    }
+
+    /**
+     * Does nothing.
+     *
+     * @param e
+     *            the KeyEvent
+     */
+    public void keyTyped(KeyEvent e)
+    {
+    }
+
+    /**
+     * Does nothing.
+     *
+     * @param e
+     *            the KeyEvent
+     */
+    public void keyReleased(KeyEvent e)
+    {
+    }
+
+    /**
+     * Enable or disable the JDayChooser.
+     *
+     * @param enabled
+     *            The new enabled value
+     */
+    public void setEnabled(boolean enabled)
+    {
+        super.setEnabled (enabled);
+
+        for (short i = 0; i &lt; days.length; i++)
+        {
+            if (days[i] != null)
+            {
+                days[i].setEnabled (enabled);
+            }
+        }
+
+        for (short i = 0; i &lt; weeks.length; i++)
+        {
+            if (weeks[i] != null)
+            {
+                weeks[i].setEnabled (enabled);
+            }
+        }
+    }
+
+    /**
+     * In some Countries it is often usefull to know in which week of the year a
+     * date is.
+     *
+     * @return boolean true, if the weeks of the year is shown
+     */
+    public boolean isWeekOfYearVisible()
+    {
+        return weekOfYearVisible;
+    }
+
+    /**
+     * In some Countries it is often usefull to know in which week of the year a
+     * date is.
+     *
+     * @param weekOfYearVisible
+     *            true, if the weeks of the year shall be shown
+     */
+    public void setWeekOfYearVisible(boolean weekOfYearVisible)
+    {
+        if (weekOfYearVisible == this.weekOfYearVisible)
+        {
+            return;
+        }
+        else if (weekOfYearVisible)
+        {
+            add (weekPanel, BorderLayout.WEST);
+        }
+        else
+        {
+            remove (weekPanel);
+        }
+
+        this.weekOfYearVisible = weekOfYearVisible;
+        validate ();
+        dayPanel.validate ();
+    }
+
+    /**
+     * Returns the day panel.
+     *
+     * @return the day panel
+     */
+    public JPanel getDayPanel()
+    {
+        return dayPanel;
+    }
+
+    /**
+     * Returns the color of the decoration (day names and weeks).
+     *
+     * @return the color of the decoration (day names and weeks).
+     */
+    public Color getDecorationBackgroundColor()
+    {
+        return decorationBackgroundColor;
+    }
+
+    /**
+     * Sets the background of days and weeks of year buttons.
+     *
+     * @param decorationBackgroundColor
+     *            The background to set
+     */
+    public void setDecorationBackgroundColor(Color decorationBackgroundColor)
+    {
+        this.decorationBackgroundColor = decorationBackgroundColor;
+
+        if (days != null)
+        {
+            for (int i = 0; i &lt; 7; i++)
+            {
+                days[i].setBackground (decorationBackgroundColor);
+                if (i == 0)
+                {
+                    days[i].setForeground (sundayForeground);
+                }
+                else
+                {
+                    days[i].setForeground (weekdayForeground);
+                }
+            }
+        }
+
+        if (weeks != null)
+        {
+            for (int i = 0; i &lt; 7; i++)
+            {
+                weeks[i].setBackground (decorationBackgroundColor);
+            }
+        }
+    }
+
+    /**
+     * Returns the Sunday foreground.
+     *
+     * @return Color the Sunday foreground.
+     */
+    public Color getSundayForeground()
+    {
+        return sundayForeground;
+    }
+
+    /**
+     * Returns the weekday foreground.
+     *
+     * @return Color the weekday foreground.
+     */
+    public Color getWeekdayForeground()
+    {
+        return weekdayForeground;
+    }
+
+    /**
+     * Sets the Sunday foreground.
+     *
+     * @param sundayForeground
+     *            The sundayForeground to set
+     */
+    public void setSundayForeground(Color sundayForeground)
+    {
+        this.sundayForeground = sundayForeground;
+        drawDayNames ();
+        drawDays ();
+    }
+
+    /**
+     * Sets the weekday foreground.
+     *
+     * @param weekdayForeground
+     *            The weekdayForeground to set
+     */
+    public void setWeekdayForeground(Color weekdayForeground)
+    {
+        this.weekdayForeground = weekdayForeground;
+        drawDayNames ();
+        drawDays ();
+    }
+
+    /**
+     * Requests that the selected day also have the focus.
+     */
+    public void setFocus()
+    {
+        if (selectedDay != null)
+        {
+            this.selectedDay.requestFocus ();
+        }
+    }
+
+    /**
+     * The decoration background is the background color of the day titles and
+     * the weeks of the year.
+     *
+     * @return Returns true, if the decoration background is painted.
+     */
+    public boolean isDecorationBackgroundVisible()
+    {
+        return decorationBackgroundVisible;
+    }
+
+    /**
+     * The decoration background is the background color of the day titles and
+     * the weeks of the year.
+     *
+     * @param decorationBackgroundVisible
+     *            true, if the decoration background shall be painted.
+     */
+    public void setDecorationBackgroundVisible(
+            boolean decorationBackgroundVisible)
+    {
+        this.decorationBackgroundVisible = decorationBackgroundVisible;
+        initDecorations ();
+    }
+
+    /**
+     * The decoration border is the button border of the day titles and the
+     * weeks of the year.
+     *
+     * @return Returns true, if the decoration border is painted.
+     */
+    public boolean isDecorationBordersVisible()
+    {
+        return decorationBordersVisible;
+    }
+
+    public boolean isDayBordersVisible()
+    {
+        return dayBordersVisible;
+    }
+
+    /**
+     * The decoration border is the button border of the day titles and the
+     * weeks of the year.
+     *
+     * @param decorationBordersVisible
+     *            true, if the decoration border shall be painted.
+     */
+    public void setDecorationBordersVisible(boolean decorationBordersVisible)
+    {
+        this.decorationBordersVisible = decorationBordersVisible;
+        initDecorations ();
+    }
+
+    public void setDayBordersVisible(boolean dayBordersVisible)
+    {
+        this.dayBordersVisible = dayBordersVisible;
+        if (initialized)
+        {
+            for (int x = 7; x &lt; 49; x++)
+            {
+                if ("Windows".equals (UIManager.getLookAndFeel ().getID ()))
+                {
+                    days[x].setContentAreaFilled (dayBordersVisible);
+                }
+                else
+                {
+                    days[x].setContentAreaFilled (true);
+                }
+                days[x].setBorderPainted (dayBordersVisible);
+            }
+        }
+    }
+
+    /**
+     * Updates the UI and sets the day button preferences.
+     */
+    public void updateUI()
+    {
+        super.updateUI ();
+        setFont (Font.decode ("Dialog Plain 11"));
+
+        if (weekPanel != null)
+        {
+            weekPanel.updateUI ();
+        }
+        if (initialized)
+        {
+            if ("Windows".equals (UIManager.getLookAndFeel ().getID ()))
+            {
+                setDayBordersVisible (false);
+                setDecorationBackgroundVisible (true);
+                setDecorationBordersVisible (false);
+            }
+            else
+            {
+                setDayBordersVisible (true);
+                setDecorationBackgroundVisible (decorationBackgroundVisible);
+                setDecorationBordersVisible (decorationBordersVisible);
+            }
+        }
+    }
+
+    /**
+     * Sets a valid date range for selectable dates. If max is before min, the
+     * default range with no limitation is set.
+     *
+     * @param min
+     *            the minimum selectable date or null (then the minimum date is
+     *            set to 01\01\0001)
+     * @param max
+     *            the maximum selectable date or null (then the maximum date is
+     *            set to 01\01\9999)
+     */
+    public void setSelectableDateRange(Date min, Date max)
+    {
+        if (min == null)
+        {
+            minSelectableDate = defaultMinSelectableDate;
+        }
+        else
+        {
+            minSelectableDate = min;
+        }
+        if (max == null)
+        {
+            maxSelectableDate = defaultMaxSelectableDate;
+        }
+        else
+        {
+            maxSelectableDate = max;
+        }
+        if (maxSelectableDate.before (minSelectableDate))
+        {
+            minSelectableDate = defaultMinSelectableDate;
+            maxSelectableDate = defaultMaxSelectableDate;
+        }
+        drawDays ();
+    }
+
+    /**
+     * Sets the maximum selectable date. If null, the date 01\01\9999 will be
+     * set instead.
+     *
+     * @param max
+     *            the maximum selectable date
+     *
+     * @return the maximum selectable date
+     */
+    public Date setMaxSelectableDate(Date max)
+    {
+        if (max == null)
+        {
+            maxSelectableDate = defaultMaxSelectableDate;
+        }
+        else
+        {
+            maxSelectableDate = max;
+        }
+        drawDays ();
+        return maxSelectableDate;
+    }
+
+    /**
+     * Sets the minimum selectable date. If null, the date 01\01\0001 will be
+     * set instead.
+     *
+     * @param min
+     *            the minimum selectable date
+     *
+     * @return the minimum selectable date
+     */
+    public Date setMinSelectableDate(Date min)
+    {
+        if (min == null)
+        {
+            minSelectableDate = defaultMinSelectableDate;
+        }
+        else
+        {
+            minSelectableDate = min;
+        }
+        drawDays ();
+        return minSelectableDate;
+    }
+
+    /**
+     * Gets the maximum selectable date.
+     *
+     * @return the maximum selectable date
+     */
+    public Date getMaxSelectableDate()
+    {
+        return maxSelectableDate;
+    }
+
+    /**
+     * Gets the minimum selectable date.
+     *
+     * @return the minimum selectable date
+     */
+    public Date getMinSelectableDate()
+    {
+        return minSelectableDate;
+    }
+
+    /**
+     * Gets the maximum number of characters of a day name or 0. If 0 is
+     * returned, dateFormatSymbols.getShortWeekdays() will be used.
+     *
+     * @return the maximum number of characters of a day name or 0.
+     */
+    public int getMaxDayCharacters()
+    {
+        return maxDayCharacters;
+    }
+
+    /**
+     * Sets the maximum number of characters per day in the day bar. Valid
+     * values are 0-4. If set to 0, dateFormatSymbols.getShortWeekdays() will be
+     * used, otherwise theses strings will be reduced to the maximum number of
+     * characters.
+     *
+     * @param maxDayCharacters
+     *            the maximum number of characters of a day name.
+     */
+    public void setMaxDayCharacters(int maxDayCharacters)
+    {
+        if (maxDayCharacters == this.maxDayCharacters)
+        {
+            return;
+        }
+
+        if (maxDayCharacters &lt; 0 || maxDayCharacters > 4)
+        {
+            this.maxDayCharacters = 0;
+        }
+        else
+        {
+            this.maxDayCharacters = maxDayCharacters;
+        }
+        drawDayNames ();
+        drawDays ();
+        invalidate ();
+    }
+
+    class DecoratorButton extends JButton
+    {
+        private static final long serialVersionUID = -5306477668406547496L;
+
+        public DecoratorButton()
+        {
+            setBackground (decorationBackgroundColor);
+            setContentAreaFilled (decorationBackgroundVisible);
+            setBorderPainted (decorationBordersVisible);
+        }
+
+        public void addMouseListener(MouseListener l)
+        {
+        }
+
+        public boolean isFocusable()
+        {
+            return false;
+        }
+
+        public void paint(Graphics g)
+        {
+            if ("Windows".equals (UIManager.getLookAndFeel ().getID ()))
+            {
+                // this is a hack to get the background painted
+                // when using Windows Look & Feel
+                if (decorationBackgroundVisible)
+                {
+                    g.setColor (decorationBackgroundColor);
+                }
+                else
+                {
+                    g.setColor (days[7].getBackground ());
+                }
+                g.fillRect (0, 0, getWidth (), getHeight ());
+                if (isBorderPainted ())
+                {
+                    setContentAreaFilled (true);
+                }
+                else
+                {
+                    setContentAreaFilled (false);
+                }
+            }
+            super.paint (g);
+        }
+    };
+}
+</div><div class="col2"><br /><br /><div id="sticky-parent"><div class='adsbyvli' data-ad-slot='vi_14173525'></div> <script type="d5ea40fa73c749a51f7790c9-text/javascript">(vitag.Init = window.vitag.Init || []).push(function () { viAPItag.display('vi_14173525') })</script><div id='carbon-block'></div><script type="d5ea40fa73c749a51f7790c9-text/javascript">try{fetch(new Request('https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', { method: 'HEAD', mode: 'no-cors' })).then(function(response) {return true;}).catch(function(e) {var carbonScript = document.createElement('script'); carbonScript.src = '//cdn.carbonads.com/carbon.js?serve=CE7D62JN&placement=wwwjavatipsnet';carbonScript.id = '_carbonads_js';document.getElementById('carbon-block').appendChild(carbonScript);});} catch (error) {console.log(error);}</script><br /><br /><div class='adsbyvli' data-ad-slot='vi_141733456'></div> <script type="d5ea40fa73c749a51f7790c9-text/javascript">(vitag.Init = window.vitag.Init || []).push(function () { viAPItag.display('vi_141733456') })</script></div></div></div></code></pre><div class='adsbyvli' data-ad-slot='vi_141733718'></div> <script type="d5ea40fa73c749a51f7790c9-text/javascript">(vitag.Init = window.vitag.Init || []).push(function () { viAPItag.display('vi_141733718') })</script><br /><br /></div></div><script defer type="d5ea40fa73c749a51f7790c9-text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script><script defer type="d5ea40fa73c749a51f7790c9-text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.8/jstree.min.js"></script><script defer type="d5ea40fa73c749a51f7790c9-text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.js"></script><script defer type="d5ea40fa73c749a51f7790c9-text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/jquery.sticky/1.0.4/jquery.sticky.min.js'></script><script type="d5ea40fa73c749a51f7790c9-text/javascript">window.addEventListener("load",function(){
+$(function(){$("#jstree").jstree();$("#jstree").on("click",".jstree-anchor",function(b){$(this).jstree(true).toggle_node(b.target)}).jstree();$("#jstree").bind("select_node.jstree",function(f,d){var e=d.node.a_attr.href;window.location=e})});jQuery(function(){var b=jQuery("#pull");menu=jQuery("nav>ul");menuHeight=menu.height();jQuery(b).on("click",function(a){a.preventDefault();menu.slideToggle()})});$("#code").scroll(function(){if($(this).scrollTop()>0){$("._bsa_flexbar").fadeOut()}else{$("._bsa_flexbar").fadeIn()}});(function(){if(typeof _bsa!=="undefined"&&_bsa){_bsa.init("stickybox","CKYICK3U","placement:wwwjavatipsnet")}})();(function(){if(typeof _bsa!=="undefined"&&_bsa){_bsa.init("flexbar","CKYICK3Y","placement:wwwjavatipsnet")}})();$("#sticky-parent").sticky({topSpacing:0,bottomSpacing:600});$("#sticky-parent").css({position:"fixed","margin-left":"50px"});});</script><script type="d5ea40fa73c749a51f7790c9-text/javascript"> var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-22006649-1']); _gaq.push(['_trackPageview']);  (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })(); </script><script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="d5ea40fa73c749a51f7790c9-|49" defer=""></script></body></html>

@@ -19,6 +19,7 @@ import javax.swing.JPanel;
 /**
  *
  * @author claudiodionisio
+ * student number:2019235
  */
 public class ViewAppointments extends JFrame {
      private JComboBox<String> jComboBox1 = new JComboBox();
@@ -42,8 +43,7 @@ public class ViewAppointments extends JFrame {
         this.title = "View Appointments";
         this.model = new Model();
         this.userName = controller.getUserName();
-        //if it is the request comes from the user page, it runs this,
-
+        //sets the text on to the panels
         textTf1.setText("These are your bookings select one to cancel");
         textTf2.setText("If the textbox is empty you have no bookings.");
         jComboBox1.addItemListener(listener);
@@ -80,6 +80,7 @@ public class ViewAppointments extends JFrame {
         this.setLocationRelativeTo(null);
         this.logout.setBorderPainted(false);
         this.back.setBorderPainted(false);
+        //prvents the button from triggering the item listener
         this.logout.setFocusable(false);
         this.back.setFocusable(false);
         this.setResizable(false);

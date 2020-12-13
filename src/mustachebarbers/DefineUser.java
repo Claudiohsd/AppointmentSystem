@@ -6,7 +6,6 @@
 package mustachebarbers;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -14,6 +13,7 @@ import javax.swing.JPanel;
 /**
  *
  * @author claudiodionisio
+ * student number:2019235
  */
 public class DefineUser extends JFrame {
 

@@ -24,6 +24,7 @@ import javax.swing.text.JTextComponent;
 /**
  *
  * @author claudiodionisio
+ * student number:2019235
  */
 public class Reviews extends JFrame {
 
@@ -48,7 +49,7 @@ public class Reviews extends JFrame {
         // sets the default title to start page which will be the first page to run
         this.title = "Reviews";
         this.model = new Model();
-      
+        //sets the text
         textTf1.setText("Please enter the barber name");
         textTf2.setText("Write down your review.");
         jComboBox1.addItemListener(listener);
@@ -123,7 +124,7 @@ public class Reviews extends JFrame {
         return tf1.getText();
     }
 
-
+//makes sure the text box is selected
     ItemListener listener = (e) -> {
         if (e.getStateChange() == ItemEvent.SELECTED) {
             if (e.getSource() == jComboBox1) {
@@ -142,7 +143,7 @@ public class Reviews extends JFrame {
         }
 
     };
-
+//makes sure the field review is not emptyf
     class PassVerifier extends InputVerifier {
 
         public boolean verify(JComponent input) {

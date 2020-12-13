@@ -19,6 +19,7 @@ import javax.swing.JPanel;
 /**
  *
  * @author claudiodionisio
+ * student number:2019235
  */
 public class WelcomePage extends JFrame {
 
@@ -89,7 +90,7 @@ public class WelcomePage extends JFrame {
 
     //setter
     public void setUserName(String user) {
-
+        // sets the text to the user name
         textTf1.setText("        Welcome " + user.toUpperCase() + "!        ");
     }
 

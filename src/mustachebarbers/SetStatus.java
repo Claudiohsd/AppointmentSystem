@@ -21,49 +21,50 @@ import javax.swing.JPanel;
  * @author claudiodionisio
  * student number:2019235
  */
-public class ViewBooking extends JFrame {
-
-    private JComboBox<String> jComboBox1 = new JComboBox();
+public class SetStatus extends JFrame {
+     private JComboBox<String> jComboBox1 = new JComboBox();
     private JPanel mainPanel = new JPanel();
     private JPanel panel2 = new JPanel();
     private JLabel textTf1 = new JLabel();
     private JLabel textTf2 = new JLabel();
-    private JButton cancel = new JButton("            Cancel             ");
+    private JButton Completed = new JButton("Completed");
+    private JButton noShow = new JButton("No Show");
     private JButton back = new JButton("Back");
     private JButton logout = new JButton("Logout");
-    private String selected, title, dateTime, userName;
+    private String selected, title, dateTime,userName;
     GridLayout gLayout = new GridLayout(2, 1);
 
     Controller controller;
     Model model;
     User user;
 
-    public ViewBooking(Controller controller) {
+    public SetStatus(Controller controller) {
         this.controller = controller;
         // sets the default title to start page which will be the first page to run
-        this.title = "View Bookings";
+        this.title = "Set Status";
         this.model = new Model();
         this.userName = controller.getUserName();
-        //sets the texts on the panels
-        textTf1.setText("These are your bookings select one to cancel");
+       //set the text on to the panels
+        textTf1.setText("These are your bookings select one");
         textTf2.setText("If the textbox is empty you have no bookings.");
         jComboBox1.addItemListener(listener);
         System.out.println(userName);
-        //populates the jcombo box
-        jComboBox1.setModel(new DefaultComboBoxModel<>(model.searchBooking(userName)));
+        jComboBox1.setModel(new DefaultComboBoxModel<>(model.searchAppointments(userName)));
         // We encapsulated the building process of the window
         setAttributes();
         components();
         // listeners
-        cancel.addActionListener(controller);
+        Completed.addActionListener(controller);
+        noShow.addActionListener(controller);
         logout.addActionListener(controller);
-        back.setActionCommand("ViewBooking Back");
-        logout.setActionCommand("ViewBooking Logout");
+        logout.setActionCommand("SetStatus Logout");
+        back.setActionCommand("SetStatus Back");
         back.addActionListener(controller);
         //adds the elements to the panel
         mainPanel.add(textTf1);
         mainPanel.add(jComboBox1);
-        panel2.add(cancel);
+        panel2.add(Completed);
+        panel2.add(noShow);
         panel2.add(textTf2);
         panel2.add(back);
         panel2.add(logout);
@@ -83,10 +84,10 @@ public class ViewBooking extends JFrame {
         this.back.setBorderPainted(false);
         this.logout.setFocusable(false);
         this.back.setFocusable(false);
-
         this.setResizable(false);
         this.setVisible(true);
-        this.cancel.setVisible(false);
+        this.Completed.setVisible(false);
+        this.noShow.setVisible(false);
 
     }
     // Organising the components
@@ -97,6 +98,7 @@ public class ViewBooking extends JFrame {
         this.add(mainPanel, BorderLayout.CENTER);
         this.add(panel2, BorderLayout.PAGE_END);
         this.setLayout(gLayout);
+        
 
     }
     // Validation and repainting
@@ -107,28 +109,26 @@ public class ViewBooking extends JFrame {
         //makes sure the jframe quits when closing window
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-//getters and setters
 
     public String getdateTime() {
 
         return this.dateTime;
     }
-
     public void setUserName(String us) {
 
-        this.userName = us;
+       this.userName = us;
     }
-    //selects the booking and creates a substring that will be used to locate the booking on the database, 
-    //as the booking is shown as date and barber, this separates the string into two and collects only the date, which is in the format of the database
+    
     ItemListener listener = (e) -> {
         if (e.getStateChange() == ItemEvent.SELECTED) {
             if (e.getSource() == jComboBox1) {
                 if (jComboBox1.getSelectedIndex() != 0) {
                     selected = jComboBox1.getSelectedItem().toString();
                     //gets the datetime that is shown with the name and stores only the date and time into the variable
-                    this.dateTime = selected.substring(selected.indexOf("On:") + 4);
+                    this.dateTime = selected.substring(selected.indexOf("On:")+4);
                     System.out.println(dateTime);
-                    this.cancel.setVisible(true);
+                    this.Completed.setVisible(true);
+                    this.noShow.setVisible(true);
 
                 }
             }
@@ -138,3 +138,6 @@ public class ViewBooking extends JFrame {
     };
 
 }
+
+
+   
