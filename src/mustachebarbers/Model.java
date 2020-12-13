@@ -22,7 +22,7 @@ public class Model {
     private int phone, size;
 
     User user;
-
+    //
     //login method, returns a boolean to confirm if the user was found
     public boolean login(User user) {
 
